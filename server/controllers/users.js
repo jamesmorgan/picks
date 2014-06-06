@@ -1,6 +1,9 @@
 exports.setup = function(app, mongoose) {
 
-  var User = mongoose.model('User', { name: String, story: String });
+  var User = mongoose.model('User', {
+    name: String,
+    story: String
+  });
 
   // The routes below define what is used by AngularJS's ngResource module for
   // automatic backend resource management.
@@ -14,7 +17,9 @@ exports.setup = function(app, mongoose) {
 
   // get
   app.get('/users/:id', function(req, res) {
-    User.findOne({_id: req.params.id}, function(err, data) {
+    User.findOne({
+      _id: req.params.id
+    }, function(err, data) {
       res.send(data);
     });
   });
@@ -22,7 +27,9 @@ exports.setup = function(app, mongoose) {
   // save (existing)
   app.post('/users/:id', function(req, res) {
     delete req.body._id;
-    User.update({_id: req.params.id}, req.body, function(err, affected) {
+    User.update({
+      _id: req.params.id
+    }, req.body, function(err, affected) {
       res.send(err);
     });
   });
@@ -36,7 +43,9 @@ exports.setup = function(app, mongoose) {
 
   // remove
   app.del('/users/:id', function(req, res) {
-    User.remove({_id: req.params.id}, function(err) {
+    User.remove({
+      _id: req.params.id
+    }, function(err) {
       res.send(err);
     });
   });

@@ -1,26 +1,30 @@
 <!doctype html>
 <html lang="en" ng-app="myApp">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>My AngularJS App</title>
-    <link rel="stylesheet" href="app/vendor/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="app/css/app.css"/>
-  </head>
-  <body>
+    <link rel="stylesheet" href="app/vendor/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="app/css/app.css" />
+</head>
+
+<body>
     <div class="container-narrow">
 
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right" ng-controller="NavCtrl">
-          <li ng-class="isActive('/users')"><a href="#/users">Users</a></li>
-          <li ng-class="isActive('/about')"><a href="#/about">About</a></li>
-        </ul>
-        <h3 class="muted">Project name</h3>
-      </div>
+        <div class="masthead">
+            <ul class="nav nav-pills pull-right" ng-controller="NavCtrl">
+                <li ng-class="isActive('/users')"><a href="#/users">Users</a>
+                </li>
+                <li ng-class="isActive('/about')"><a href="#/about">About</a>
+                </li>
+            </ul>
+            <h3 class="muted">Project name</h3>
+        </div>
 
-      <hr>
+        <hr>
 
-      <div ng-view>
-      </div>
+        <div ng-view>
+        </div>
     </div>
 
     <!-- In production use:
@@ -33,5 +37,6 @@
     <script src="app/js/controllers.js"></script>
     <script src="app/js/filters.js"></script>
     <script src="app/js/directives.js"></script>
-  </body>
+</body>
+
 </html>

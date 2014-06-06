@@ -1,12 +1,12 @@
-var path     = require('path'),
-    express  = require('express'),
-    app      = express(),
-    mongoose = require('mongoose');
+var path = require('path'),
+	express = require('express'),
+	app = express(),
+	mongoose = require('mongoose');
 
 var dbusr = process.env.MONGOLABUSR,
-    dbpw  = process.env.MONGOLABPW,
-    db    = 'picks',
-    dbURI = 'mongodb://picks:picks@ds027908.mongolab.com:27908/' + db;
+	dbpw = process.env.MONGOLABPW,
+	db = 'picks',
+	dbURI = 'mongodb://picks:picks@ds027908.mongolab.com:27908/' + db;
 
 mongoose.connect(dbURI);
 // var connection = mongoose.createConnection(dbURI);
@@ -41,7 +41,7 @@ app.use(express.bodyParser());
 app.use("/app", express.compress());
 app.use("/app", express.static(path.resolve(__dirname, "../app")));
 app.use("/app", function(req, res, next) {
-  res.send(404);
+	res.send(404);
 });
 app.use(express.logger()); // Log requests to the console
 
@@ -56,7 +56,9 @@ selections.setup(app, mongoose);
 // This is the route that sends the base index.html file all other routes are
 // for data only, no server-side views here.
 app.all('/', function(req, res) {
-  res.sendfile('index.html', { root: "../app" });
+	res.sendfile('index.html', {
+		root: "../app"
+	});
 });
 
 var port = process.env.PORT || 3000;

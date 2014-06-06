@@ -25,8 +25,6 @@ exports.setup = function(app, mongoose) {
 	var Selection = mongoose.model('Selection', selectionSchema);
 	var Game = mongoose.model('Game', gameSchema);
 
-	// The routes below define what is used by AngularJS's ngResource module for
-	// automatic backend resource management.
 
 	// query
 	app.get('/selections', function(req, res) {
@@ -41,7 +39,6 @@ exports.setup = function(app, mongoose) {
 		});
 	});
 
-	// get
 	app.get('/game/:id', function(req, res) {
 		Game.findOne({
 			_id: req.params.id
