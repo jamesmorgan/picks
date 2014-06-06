@@ -14,3 +14,12 @@ results
 npm-debug.log
 
 server/node_modules/*
+
+# IntelliJ
+.idea
+.history
+.idea_modules
+*.iml
+
+# Mac
+.DS_Store
