@@ -9,6 +9,10 @@ config(['$routeProvider',
 			templateUrl: '/app/partials/users.html',
 			controller: 'UserCtrl'
 		});
+		$routeProvider.when('/selections', {
+			templateUrl: '/app/partials/selections.html',
+			controller: 'SelectionsCtrl'
+		});
 		$routeProvider.when('/about', {
 			templateUrl: '/app/partials/about.html',
 			controller: 'AboutCtrl'
