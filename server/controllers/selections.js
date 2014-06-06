@@ -33,6 +33,12 @@ exports.setup = function(app, mongoose) {
 		});
 	});
 
+	app.get('/selections/:gameid', function(req, res) {
+		Selection.find({ "game": req.params.gameid }, function(err, docs) {
+			res.send(docs);
+		});
+	});
+
 	app.get('/games', function(req, res) {
 		Game.find({}, function(err, docs) {
 			res.send(docs);
