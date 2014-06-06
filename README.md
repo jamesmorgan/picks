@@ -1,4 +1,10 @@
-MEAN Seed (MongoDB though MongoLab, Express, Angular and Node)
+Picks
 =========
 
-A seed for the MEAN stack described [here](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and)
+Simple mean stack.
+
+```
+cd server
+node server.js
+```
+
