@@ -40,7 +40,13 @@ angular.module('myApp.controllers', [])
     }
   })
   .controller('SelectionsCtrl', function($scope, Selection) {
-    $scope.selections = Selection.query();
+    $scope.selections = null;
+
+    $scope.loadSelections = function() {
+       $scope.selections = Selection.query({
+        gameId: '536cdbe0f524632c35b29e6e'
+      });
+    }
   })
   .controller('AboutCtrl', function($scope) {
 

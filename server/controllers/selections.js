@@ -25,15 +25,16 @@ exports.setup = function(app, mongoose) {
 	var Selection = mongoose.model('Selection', selectionSchema);
 	var Game = mongoose.model('Game', gameSchema);
 
-
 	// query
 	app.get('/selections', function(req, res) {
+		console.log("GET /selections");
 		Selection.find({}, function(err, docs) {
 			res.send(docs);
 		});
 	});
 
 	app.get('/selections/:gameid', function(req, res) {
+		console.log("GET /selections/" + req.params.gameid);
 		Selection.find({ "game": req.params.gameid }, function(err, docs) {
 			res.send(docs);
 		});
