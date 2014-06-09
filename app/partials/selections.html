@@ -12,7 +12,9 @@
         <h4>Selections</h4>
         <div ng-init="loadSelections()">
             <div ng-repeat="pot in pots">
-                <select ng-options"opt._id for opt in pot"></select>
+                <select>
+                    <option ng-repeat="opt in pot">{{ opt.name }}</option>
+                </select>
             </div>
         </div>
     </div>
