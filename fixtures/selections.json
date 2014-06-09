@@ -4,3 +4,58 @@
 {"name": "Sergio Garcia", "pot":2, "score": 0, "__v":0, "game": ObjectId("536cdbe0f524632c35b29e6e")}
 {"name": "Jason Dufner", "pot":3, "score": 0, "__v":0, "game": ObjectId("536cdbe0f524632c35b29e6e")}
 {"name": "Lee Westwood", "pot":4, "score": 0, "__v":0, "game": ObjectId("536cdbe0f524632c35b29e6e")}
+{"name":"Lionel Messi","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Neymar","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Cristiano Ronaldo","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Luis Suarez","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Sergio Aguero","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Gonzalo Higuain","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Radamel Falcao","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Diego Costa","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Robin van Persie","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Romelu Lukaku","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Thomas Muller","pot":1, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Mario Balotelli","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Alvaro Negredo","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Miroslav Klose","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Fred","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Christian Benteke","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Fernando Torres","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Edinson Cavani","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Hulk","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Carlos Tevez","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Karim Benzema","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Mario Gomez","pot":2, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Wayne Rooney","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Jo","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Franck Ribery","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Arjen Robben","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Olivier Giroud","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Teofilo Gutierrez","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Oscar","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Adrian Ramos","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Ezequiel Lavezzi","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Paul Pogba","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Alexandre Pato","pot":3, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Marco Reus","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Alexis Sanchez","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Lukas Podolski","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Mesut Ozil","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Daniel Sturridge","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Klaas Jan Huntelaar","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Bruno Alves","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"David Villa","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Max Kruse","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Roberto Soldado","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Cesc Fabregas","pot":4, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Mario Goetze","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Paulinho","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Fernando Llorente","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Juan Mata","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Pedro","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Andre Schurrle","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Robinho","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Leandro Damiao","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Eden Hazard","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Jackson Martinez","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}
+{"name":"Alexander Kerzhakov","pot":5, "game": ObjectId("53959190e4b0a2f0b57062b8"), "score": 0, "__v": 0}

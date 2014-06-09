@@ -41,11 +41,18 @@ angular.module('myApp.controllers', [])
   })
   .controller('SelectionsCtrl', function($scope, Selection) {
     $scope.selections = null;
+    $scope.pots = null;
 
     $scope.loadSelections = function() {
-       $scope.selections = Selection.query({
-        gameId: '536cdbe0f524632c35b29e6e'
+      $scope.selections = Selection.query({
+        gameId: '53959190e4b0a2f0b57062b8'
+      }, function() {
+          $scope.pots = _.groupBy($scope.selections, 'pot');
       });
+    }
+
+    $scope.pots = function() {
+
     }
   })
   .controller('AboutCtrl', function($scope) {

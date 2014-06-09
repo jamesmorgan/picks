@@ -10,10 +10,10 @@
 <div class="row-fluid marketing">
     <div class="span12">
         <h4>Selections</h4>
-        <ul ng-init="loadSelections()">
-            <li ng-repeat="selection in selections">
-                {{ selection.name }}
-            </li>
-        </ul>
+        <div ng-init="loadSelections()">
+            <div ng-repeat="pot in pots">
+                <select ng-options"opt._id for opt in pot"></select>
+            </div>
+        </div>
     </div>
 </div>
