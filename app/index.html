@@ -3,39 +3,47 @@
 
 <head>
     <meta charset="utf-8">
-    <title>My AngularJS App</title>
-    <link rel="stylesheet" href="app/vendor/css/bootstrap.min.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Andy Gray">
+
+    <title>Picks</title>
+    
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="app/css/app.css" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-    <div class="container-narrow">
-
-        <div class="masthead">
-            <ul class="nav nav-pills pull-right" ng-controller="NavCtrl">
-                <li ng-class="isActive('/users')"><a href="#/users">Users</a>
-                </li>
-                <li ng-class="isActive('/about')"><a href="#/about">About</a>
-                </li>
-                <li ng-class="isActive('/selections')"><a href="#/selections">Selections</a>
-                </li>
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li ng-class="isActive('/selections')"><a href="#/selections">Selections</a></li>
+                <li ng-class="isActive('/table')"><a href="#/table">Table</a></li>
+                <li ng-class="isActive('/about')"><a href="#/about">About</a></li>
             </ul>
-            <h3 class="muted">Project name</h3>
+            <h1 class="text-muted">Picks</h1>
         </div>
 
-        <hr>
+        <hr/>
 
-        <div ng-view>
+        <div ng-view class="col-sm-8 col-sm-offset-2">
         </div>
-    </div>
 
+    </div> <!-- /container -->
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-    <!--<script src="app/vendor/js/angular/angular.js"></script>
-    <script src="app/vendor/js/angular/angular-resource.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="app/js/app.js"></script>
     <script src="app/js/services.js"></script>
     <script src="app/js/controllers.js"></script>
