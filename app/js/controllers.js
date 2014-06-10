@@ -2,7 +2,7 @@
 
 /* Controllers */
 angular.module('myApp.controllers', [])
-  .controller('SelectionsCtrl', function($scope, Selection) {
+  .controller('SelectionsCtrl', function($scope, Selection, Pick) {
     $scope.selections = null;
     $scope.pots = null;
 
@@ -15,7 +15,12 @@ angular.module('myApp.controllers', [])
     }
 
     $scope.submitSelections = function() {
-      
+        var picks = new Pick({
+          name: $scope.name,
+          game: '53959190e4b0a2f0b57062b8',
+          selections: []
+        });
+        picks.$save();
     }
   })
   .controller('AboutCtrl', function($scope) {

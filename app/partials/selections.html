@@ -1,19 +1,19 @@
 <h3>Make your selections...</h3>
 <p>Pick one from each pot, stick you name on &apos;em, and your&apos;e off!</p>
 <div ng-init="loadSelections()">
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal" role="form" ng-submit="submitSelections()">
         <div class="form-group" ng-repeat="pot in pots">
-            <label for="inputEmail3" class="col-sm-2 control-label input-lg">Pot {{ $index }}</label>
+            <label class="col-sm-2 control-label input-lg">Pot {{ $index }}</label>
             <div class="col-sm-10">
-                <select class="input-lg input-lg-min-width">
+                <select class="input-lg input-lg-min-width" ng-model="picks$index">
                     <option ng-repeat="opt in pot">{{ opt.name }}</option>
                 </select>
             </div>
         </div>
         <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label input-lg">Name</label>
+            <label for="name" class="col-sm-2 control-label input-lg">Name</label>
             <div class="col-sm-10">
-                <input type="text" ng-model="name" maxlength="50" placeholder="Type your name here..." class="input-lg input-lg-min-width"/>
+                <input type="text" ng-model="name" name="name" maxlength="50" placeholder="Type your name here..." class="input-lg input-lg-min-width"/>
             </div>
         </div>
         <div class="form-group">
@@ -21,6 +21,6 @@
               <button type="submit" class="btn btn-success input-lg input-lg-min-width">Submit Selections</button>
             </div>
         </div>
-        <pre>{{ name }}</pre>
+        <pre>{{ picks0 }}{{ name }}</pre>
     </form>
 </div>

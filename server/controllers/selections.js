@@ -38,23 +38,24 @@ exports.setup = function(app, mongoose) {
 	var Game = mongoose.model('Game', gameSchema);
 	var Pick = mongoose.model('Pick', pickSchema);
 
-	// query
+	// selections
 	app.get('/selections', function(req, res) {
-		console.log("GET /selections");
+		console.log('GET /selections');
 		Selection.find({}, function(err, docs) {
 			res.send(docs);
 		});
 	});
 
 	app.get('/selections/:gameid', function(req, res) {
-		console.log("GET /selections/" + req.params.gameid);
+		console.log('GET /selections/' + req.params.gameid);
 		Selection.find({
-			"game": req.params.gameid
+			'game': req.params.gameid
 		}, function(err, docs) {
 			res.send(docs);
 		});
 	});
 
+	// games
 	app.get('/games', function(req, res) {
 		Game.find({}, function(err, docs) {
 			res.send(docs);
@@ -62,6 +63,7 @@ exports.setup = function(app, mongoose) {
 	});
 
 	app.get('/game/:id', function(req, res) {
+		console.log('GET /game/' + req.params.id);
 		Game.findOne({
 			_id: req.params.id
 		}, function(err, data) {
@@ -69,12 +71,10 @@ exports.setup = function(app, mongoose) {
 		}).populate('selections');
 	});
 
-	// save (new)
+	// picks
 	app.post('/picks', function(req, res) {
-		console.log('picks');
-		console.log(req.body);
+		console.log('POST /picks');
 		Pick.create(req.body, function(err, picks) {
-			console.log(err);
 			res.send(picks);
 		});
 	});
