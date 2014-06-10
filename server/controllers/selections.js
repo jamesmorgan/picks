@@ -78,4 +78,13 @@ exports.setup = function(app, mongoose) {
 			res.send(picks);
 		});
 	});
+
+	app.get('/picks/:gameid', function(req, res) {
+		console.log('GET /picks/' + req.params.gameid);
+		Pick.find({
+			game: req.params.gameid
+		}, function(err, data) {
+			res.send(data);
+		}).populate('selections');
+	});
 }

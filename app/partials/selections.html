@@ -1,26 +1,26 @@
 <h3>Make your selections...</h3>
 <p>Pick one from each pot, stick you name on &apos;em, and your&apos;e off!</p>
 <div ng-init="loadSelections()">
-    <form class="form-horizontal" role="form" ng-submit="submitSelections()">
+    <form class="form-horizontal" role="form" ng-submit="submitSelections()" name="selectionsForm">
         <div class="form-group" ng-repeat="pot in pots">
-            <label class="col-sm-2 control-label input-lg">Pot {{ $index }}</label>
-            <div class="col-sm-10">
-                <select class="input-lg input-lg-min-width" ng-model="picks$index">
-                    <option ng-repeat="opt in pot">{{ opt.name }}</option>
-                </select>
-            </div>
+            <ng-form name="potForm">
+                <label class="col-sm-2 control-label input-lg">Pot {{ $index }}</label>
+                <div class="col-sm-10">
+                    <select class="input-lg form-control" ng-model="pot.name" name="potname" ng-options="p.name as p.name for p in pot" required>
+                    </select>
+                </div>
+            </ng-form>
         </div>
         <div class="form-group">
             <label for="name" class="col-sm-2 control-label input-lg">Name</label>
             <div class="col-sm-10">
-                <input type="text" ng-model="name" name="name" maxlength="50" placeholder="Type your name here..." class="input-lg input-lg-min-width"/>
+                <input type="text" ng-model="name" name="name" maxlength="50" placeholder="Type your name here..." class="input-lg form-control" required/>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-success input-lg input-lg-min-width">Submit Selections</button>
+              <button type="submit" class="btn btn-success input-lg form-control">Submit Selections</button>
             </div>
         </div>
-        <pre>{{ picks0 }}{{ name }}</pre>
     </form>
 </div>
