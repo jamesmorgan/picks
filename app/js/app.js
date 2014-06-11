@@ -5,9 +5,9 @@
 angular.module('myApp', ['ngRoute', 'myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers'])
 	.config(['$routeProvider',
 		function($routeProvider) {
-			$routeProvider.when('/users', {
-				templateUrl: '/app/partials/users.html',
-				controller: 'UserCtrl'
+			$routeProvider.when('/table', {
+				templateUrl: '/app/partials/table.html',
+				controller: 'TableCtrl'
 			});
 			$routeProvider.when('/selections', {
 				templateUrl: '/app/partials/selections.html',

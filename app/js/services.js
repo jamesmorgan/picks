@@ -14,5 +14,7 @@ angular.module('myApp.services', ['ngResource'])
 		})
 	})
 	.factory("Pick", function($resource) {
-		return $resource('/picks/')
+		return $resource('/picks/:gameId', {
+			gameId: '@id'
+		})
 	});
