@@ -5,6 +5,7 @@ angular.module('myApp.controllers', [])
   .controller('SelectionsCtrl', function($scope, Selection, Pick) {
     $scope.selections = null;
     $scope.pots = null;
+    $scope.potsel = [];
 
     $scope.loadSelections = function() {
       $scope.selections = Selection.query({
@@ -18,7 +19,7 @@ angular.module('myApp.controllers', [])
         var picks = new Pick({
           name: $scope.name,
           game: '53959190e4b0a2f0b57062b8',
-          selections: []
+          selections: $scope.potsel
         });
         picks.$save();
     }
