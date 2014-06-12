@@ -2,12 +2,13 @@
 
 /* Controllers */
 angular.module('myApp.controllers', [])
-  .controller('SelectionsCtrl', function($scope, $location, Selection, Pick) {
+  .controller('SelectionsCtrl', function($scope, $location, $log, Selection, Pick) {
     $scope.selections = null;
     $scope.pots = null;
     $scope.potsel = [];
 
     $scope.loadSelections = function() {
+      $log.debug('load selections');
       $scope.selections = Selection.query({
         gameId: '53959190e4b0a2f0b57062b8'
       }, function() {
@@ -16,6 +17,7 @@ angular.module('myApp.controllers', [])
     }
 
     $scope.submitSelections = function() {
+      $log.debug('submit picks for ' + $scope.name);
       var picks = new Pick({
         name: $scope.name,
         game: '53959190e4b0a2f0b57062b8',
@@ -24,14 +26,14 @@ angular.module('myApp.controllers', [])
       picks.$save();
     }
   })
-  .controller('TableCtrl', function($scope, Pick) {
+  .controller('TableCtrl', function($scope, $log, $http) {
     $scope.picks = [];
     $scope.picksTotal = [];
 
     $scope.loadPicks = function() {
-      $scope.picks = Pick.query({
-        gameId: '53959190e4b0a2f0b57062b8'
-      }, function() {
+      $log.debug('load picks');
+      $http.get('/picks/53959190e4b0a2f0b57062b8').then(function(response) {
+        $scope.picks = response.data;
         $scope.picksTotal = _.map($scope.picks, function(pick) {
           return {
             "name": pick.name,
