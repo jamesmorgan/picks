@@ -1,6 +1,5 @@
-<h3>Leaderboard</h3>
+<h3>{{ game.name }}</h3>
 <div ng-init="loadPicks()">
-
     <table class="table table-striped">
         <tr>
             <th></th>
@@ -9,7 +8,7 @@
             <th>Total</th>
         </tr>
         <tr ng-repeat="pt in picksTotal | orderBy:'total':true">
-            <td><img src="http://api.randomuser.me/portraits/men/{{ $index }}.jpg" alt="{{ pt.name }}" class="img-circle profile-img"></td>
+            <td><img src="http://api.randomuser.me/portraits/men/1.jpg" alt="{{ pt.name }}" class="img-circle profile-img"></td>
             <td>
                 <strong>{{ pt.name }}</strong>
             </td>

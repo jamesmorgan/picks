@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="myApp">
 
 <head>
     <meta charset="utf-8">
@@ -9,10 +9,14 @@
     <meta name="author" content="Andy Gray">
 
     <title>Picks</title>
-    
+
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="app/css/app.css" />
+
+    <!--[if lte IE 7]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/json2/20130526/json2.min.js"></script>
+      <![endif]-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -25,9 +29,12 @@
     <div class="container">
         <div class="header" ng-controller="NavCtrl">
             <ul class="nav nav-pills pull-right">
-                <li ng-class="{ 'active' : isActive('/selections') }"><a href="#/selections">Selections</a></li>
-                <li ng-class="{ 'active' : isActive('/table') }"><a href="#/table">Table</a></li>
-                <li ng-class="{ 'active' : isActive('/about') }"><a href="#/about">About</a></li>
+                <li ng-class="{ 'active' : isActive('/selections') }"><a href="#/selections">Selections</a>
+                </li>
+                <li ng-class="{ 'active' : isActive('/table') }"><a href="#/table">Table</a>
+                </li>
+                <li ng-class="{ 'active' : isActive('/about') }"><a href="#/about">About</a>
+                </li>
             </ul>
             <h1 class="text-muted">Picks</h1>
         </div>
@@ -37,7 +44,8 @@
         <div ng-view class="col-sm-8 col-sm-offset-2">
         </div>
 
-    </div> <!-- /container -->
+    </div>
+    <!-- /container -->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js"></script>
@@ -50,9 +58,6 @@
     <script src="app/js/controllers.js"></script>
     <script src="app/js/filters.js"></script>
     <script src="app/js/directives.js"></script>
-    <script type="text/javascript">
-            $(".btn").tooltip();
-    </script>
 </body>
 
 </html>

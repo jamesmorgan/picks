@@ -1,19 +1,28 @@
 'use strict';
 
+var GAME_ID = '53959190e4b0a2f0b57062b8';
 /* Controllers */
 angular.module('myApp.controllers', [])
-  .controller('SelectionsCtrl', function($scope, $location, $log, Selection, Pick) {
+  .controller('SelectionsCtrl', function($scope, $http, $log, Selection, Pick) {
+    $scope.game = {};
     $scope.submitted = false;
     $scope.selections = null;
     $scope.pots = null;
     $scope.potsel = [];
 
     $scope.loadSelections = function() {
-      $log.debug('load selections');
-      $scope.selections = Selection.query({
-        gameId: '53959190e4b0a2f0b57062b8'
-      }, function() {
-        $scope.pots = _.groupBy($scope.selections, 'pot');
+      $log.debug('load game and selections: ' + GAME_ID);
+
+      $http.get('/game/' + GAME_ID).then(function(response) {
+        $log.debug('loaded game ' + response.status);
+        $scope.game = response.data;
+
+        $scope.selections = Selection.query({
+            gameId: GAME_ID
+          },
+          function() {
+            $scope.pots = _.groupBy($scope.selections, 'pot');
+          });
       });
     }
 
@@ -21,7 +30,7 @@ angular.module('myApp.controllers', [])
       $log.debug('submit picks for ' + $scope.name);
       var picks = new Pick({
         name: $scope.name,
-        game: '53959190e4b0a2f0b57062b8',
+        game: GAME_ID,
         selections: $scope.potsel
       });
       picks.$save();
@@ -29,29 +38,36 @@ angular.module('myApp.controllers', [])
     }
   })
   .controller('TableCtrl', function($scope, $log, $http) {
-      $scope.picks = [];
-      $scope.picksTotal = [];
+    $scope.game = {};
+    $scope.picks = [];
+    $scope.picksTotal = [];
 
-      $scope.loadPicks = function() {
-        $log.debug('load picks');
-        $http.get('/picks/53959190e4b0a2f0b57062b8').then(function(response) {
-            $log.debug('loaded picks ' + response.status);
-            $scope.picks = response.data;
-            $scope.picksTotal = _.map($scope.picks, function(pick) {
-                return {
-                  "name": pick.name,
-                  "selections": _.reduce(pick.selections, function(soFar, selection) {
-                      return soFar + selection.name + ' [' + selection.score + '] '
-                  },
-                  ""),
-                  "total": _.reduce(pick.selections, function(totalSoFar, selection) {
-                    return totalSoFar + selection.score;
-                  }, 0)
-              }
-            });
+    $scope.loadPicks = function() {
+      $log.debug('load game and picks: ' + GAME_ID);
+      
+      $http.get('/game/' + GAME_ID).then(function(response) {
+        $log.debug('loaded game ' + response.status);
+        $scope.game = response.data;
+
+        $http.get('/picks/' + GAME_ID).then(function(response) {
+          $log.debug('loaded picks ' + response.status);
+          $scope.picks = response.data;
+          $scope.picksTotal = _.map($scope.picks, function(pick) {
+            return {
+              "name": pick.name,
+              "selections": _.reduce(pick.selections, function(soFar, selection) {
+                  return soFar + selection.name + ' [' + selection.score + '] '
+                },
+                ""),
+              "total": _.reduce(pick.selections, function(totalSoFar, selection) {
+                return totalSoFar + selection.score;
+              }, 0)
+            }
+          });
         });
+      });
     }
-})
+  })
   .controller('NavCtrl', function($scope, $location) {
     $scope.isActive = function(path) {
       return $location.path() == path;
