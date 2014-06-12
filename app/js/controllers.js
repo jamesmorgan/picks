@@ -6,8 +6,9 @@ angular.module('myApp.controllers', [])
   .controller('SelectionsCtrl', function($scope, $http, $log, Selection, Pick) {
     $scope.game = {};
     $scope.submitted = false;
-    $scope.selections = null;
-    $scope.pots = null;
+    $scope.player = "aaa";
+    $scope.selections = [];
+    $scope.pots = [];
     $scope.potsel = [];
 
     $scope.loadSelections = function() {
@@ -22,14 +23,18 @@ angular.module('myApp.controllers', [])
           },
           function() {
             $scope.pots = _.groupBy($scope.selections, 'pot');
+            angular.forEach($scope.pots, function(sels, key) {
+              $scope.potsel[key-1] = sels[0]._id;    
+            });
           });
       });
     }
 
     $scope.submitSelections = function() {
-      $log.debug('submit picks for ' + $scope.name);
+      console.log($scope);
+      $log.debug('submit picks for ' + $scope.player);
       var picks = new Pick({
-        name: $scope.name,
+        name: $scope.player,
         game: GAME_ID,
         selections: $scope.potsel
       });
@@ -44,7 +49,7 @@ angular.module('myApp.controllers', [])
 
     $scope.loadPicks = function() {
       $log.debug('load game and picks: ' + GAME_ID);
-      
+
       $http.get('/game/' + GAME_ID).then(function(response) {
         $log.debug('loaded game ' + response.status);
         $scope.game = response.data;

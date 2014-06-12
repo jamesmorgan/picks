@@ -5,15 +5,15 @@
             <th></th>
             <th>Name</th>
             <th class="hidden-xs hidden-sm">Selections</th>
-            <th>Total</th>
+            <th class="text-center">Total</th>
         </tr>
         <tr ng-repeat="pt in picksTotal | orderBy:'total':true">
-            <td><img src="http://api.randomuser.me/portraits/men/1.jpg" alt="{{ pt.name }}" class="img-circle profile-img"></td>
+            <td class="pull-right"><img src="http://api.randomuser.me/portraits/men/1.jpg" alt="{{ pt.name }}" class="img-circle profile-img"></td>
             <td>
                 <strong>{{ pt.name }}</strong>
             </td>
             <td class="hidden-xs hidden-sm"><small>{{ pt.selections }}</small></td>
-            <td>{{ pt.total }}</td>
+            <td class="text-center"><h3>{{ pt.total }}</h3></td>
         </tr>
     </table>
 </div>
