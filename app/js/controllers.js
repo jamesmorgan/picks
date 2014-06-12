@@ -6,7 +6,7 @@ angular.module('myApp.controllers', [])
   .controller('SelectionsCtrl', function($scope, $http, $log, Selection, Pick) {
     $scope.game = {};
     $scope.submitted = false;
-    $scope.player = "aaa";
+    $scope.player = "";
     $scope.selections = [];
     $scope.pots = [];
     $scope.potsel = [];
