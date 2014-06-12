@@ -11,7 +11,10 @@
             <!--<img src="http://graph.facebook.com/{{pt.facebook}}/picture" alt="{{ pt.name }}" class="img-circle profile-img">&nbsp; -->
                 <strong>{{ pt.name }}</strong>
             </td>
-            <td class="hidden-xs hidden-sm"><small>{{ pt.selections }}</small></td>
+            <td class="hidden-xs hidden-sm">
+                <small ng-show="game.status != 'open'">{{ pt.selections }}</small>
+                <small ng-show="game.status == 'open'">Selection will be shown when in-play...</small>
+            </td>
             <td class="text-center"><h3>{{ pt.total }}</h3></td>
         </tr>
     </table>
