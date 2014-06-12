@@ -3,6 +3,7 @@
 /* Controllers */
 angular.module('myApp.controllers', [])
   .controller('SelectionsCtrl', function($scope, $location, $log, Selection, Pick) {
+    $scope.submitted = false;
     $scope.selections = null;
     $scope.pots = null;
     $scope.potsel = [];
@@ -24,6 +25,7 @@ angular.module('myApp.controllers', [])
         selections: $scope.potsel
       });
       picks.$save();
+      $scope.submitted = true;
     }
   })
   .controller('TableCtrl', function($scope, $log, $http) {
@@ -33,6 +35,7 @@ angular.module('myApp.controllers', [])
     $scope.loadPicks = function() {
       $log.debug('load picks');
       $http.get('/picks/53959190e4b0a2f0b57062b8').then(function(response) {
+        $log.debug('loaded picks ' + response.status);
         $scope.picks = response.data;
         $scope.picksTotal = _.map($scope.picks, function(pick) {
           return {
