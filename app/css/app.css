@@ -6,3 +6,8 @@ body {
 .input-lg-min-width {
     min-width: 300px;
 }
+
+.profile-img {
+    max-width: 50px;
+    max-height: 50px;
+}

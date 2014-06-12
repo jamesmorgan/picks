@@ -29,25 +29,29 @@ angular.module('myApp.controllers', [])
     }
   })
   .controller('TableCtrl', function($scope, $log, $http) {
-    $scope.picks = [];
-    $scope.picksTotal = [];
+      $scope.picks = [];
+      $scope.picksTotal = [];
 
-    $scope.loadPicks = function() {
-      $log.debug('load picks');
-      $http.get('/picks/53959190e4b0a2f0b57062b8').then(function(response) {
-        $log.debug('loaded picks ' + response.status);
-        $scope.picks = response.data;
-        $scope.picksTotal = _.map($scope.picks, function(pick) {
-          return {
-            "name": pick.name,
-            "total": _.reduce(pick.selections, function(totalSoFar, selection) {
-              return totalSoFar + selection.score;
-            }, 0)
-          }
+      $scope.loadPicks = function() {
+        $log.debug('load picks');
+        $http.get('/picks/53959190e4b0a2f0b57062b8').then(function(response) {
+            $log.debug('loaded picks ' + response.status);
+            $scope.picks = response.data;
+            $scope.picksTotal = _.map($scope.picks, function(pick) {
+                return {
+                  "name": pick.name,
+                  "selections": _.reduce(pick.selections, function(soFar, selection) {
+                      return soFar + selection.name + ' [' + selection.score + '] '
+                  },
+                  ""),
+                  "total": _.reduce(pick.selections, function(totalSoFar, selection) {
+                    return totalSoFar + selection.score;
+                  }, 0)
+              }
+            });
         });
-      });
     }
-  })
+})
   .controller('NavCtrl', function($scope, $location) {
     $scope.isActive = function(path) {
       return $location.path() == path;

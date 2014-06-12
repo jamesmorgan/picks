@@ -2,7 +2,7 @@
 <p>Pick one from each pot, stick you name on &apos;em, and your&apos;e off!</p>
 <div ng-init="loadSelections()">
 
-    <div ng-show="clicked" class="alert alert-success">Thanks {{ name}}. Your selections are in. Good luck!</div>
+    <div ng-show="submitted" class="alert alert-success">Thanks {{ name}}. Your selections are in. Good luck!</div>
 
     <form class="form-horizontal" role="form" ng-submit="submitSelections()" name="selectionsForm" novalidate>
         <div class="form-group" ng-repeat="pot in pots" ng-form="potForm">

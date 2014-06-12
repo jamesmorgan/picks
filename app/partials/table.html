@@ -3,11 +3,17 @@
 
     <table class="table table-striped">
         <tr>
+            <th></th>
             <th>Name</th>
+            <th class="hidden-xs hidden-sm">Selections</th>
             <th>Total</th>
         </tr>
-        <tr ng-repeat="pt in picksTotal">
-            <td>{{ pt.name }}</td>
+        <tr ng-repeat="pt in picksTotal | orderBy:'total':true">
+            <td><img src="http://api.randomuser.me/portraits/men/{{ $index }}.jpg" alt="{{ pt.name }}" class="img-circle profile-img"></td>
+            <td>
+                <strong>{{ pt.name }}</strong>
+            </td>
+            <td class="hidden-xs hidden-sm"><small>{{ pt.selections }}</small></td>
             <td>{{ pt.total }}</td>
         </tr>
     </table>
