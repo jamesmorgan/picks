@@ -11,3 +11,7 @@ body {
     max-width: 50px;
     max-height: 50px;
 }
+
+.lobster {
+	font-family: 'Lobster', cursive, Arial, serif;
+}
