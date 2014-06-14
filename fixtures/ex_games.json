@@ -1,0 +1,2 @@
+{ "_id" : { "$oid" : "536cdbe0f524632c35b29e6e" }, "name" : "US Open Golf Picks", "type" : "golf", "description" : "Combined score of all golfers. Missed cut gets +9!", "order" : "least", "status" : "open", "__v" : 0 }
+{ "_id" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "name" : "World Cup Golden Booters", "type" : "football", "description" : "Pick a player from each pot. Highest combined goals wins! Entries close at 5pm 12th June.", "order" : "most", "status" : "inplay", "__v" : 0 }

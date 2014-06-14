@@ -1,0 +1,36 @@
+{ "_id" : { "$oid" : "539875541faecb63495801b0" }, "name" : "Tiger Woods", "pot" : 1, "score" : 0, "__v" : 0, "game" : { "$oid" : "536cdbe0f524632c35b29e6e" } }
+{ "_id" : { "$oid" : "539875551faecb63495801b1" }, "name" : "Adam Scott", "pot" : 1, "score" : 0, "__v" : 0, "game" : { "$oid" : "536cdbe0f524632c35b29e6e" } }
+{ "_id" : { "$oid" : "539875551faecb63495801b2" }, "name" : "Bubba Watson", "pot" : 2, "score" : 0, "__v" : 0, "game" : { "$oid" : "536cdbe0f524632c35b29e6e" } }
+{ "_id" : { "$oid" : "539875551faecb63495801b3" }, "name" : "Sergio Garcia", "pot" : 2, "score" : 0, "__v" : 0, "game" : { "$oid" : "536cdbe0f524632c35b29e6e" } }
+{ "_id" : { "$oid" : "539875551faecb63495801b4" }, "name" : "Jason Dufner", "pot" : 3, "score" : 0, "__v" : 0, "game" : { "$oid" : "536cdbe0f524632c35b29e6e" } }
+{ "_id" : { "$oid" : "539875561faecb63495801b5" }, "name" : "Lee Westwood", "pot" : 4, "score" : 0, "__v" : 0, "game" : { "$oid" : "536cdbe0f524632c35b29e6e" } }
+{ "_id" : { "$oid" : "539875561faecb63495801b6" }, "name" : "Lionel Messi", "pot" : 1, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875561faecb63495801b7" }, "name" : "Neymar", "pot" : 1, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 2, "__v" : 0 }
+{ "_id" : { "$oid" : "539875561faecb63495801b8" }, "name" : "Cristiano Ronaldo", "pot" : 1, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801b9" }, "name" : "Luis Suarez", "pot" : 1, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801ba" }, "name" : "Sergio Aguero", "pot" : 1, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801bb" }, "name" : "Robin Van Persie", "pot" : 1, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 2, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801bc" }, "name" : "Mario Balotelli", "pot" : 2, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801bd" }, "name" : "Diego Costa", "pot" : 2, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801be" }, "name" : "Miroslav Klose", "pot" : 2, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801bf" }, "name" : "Romelu Lukaku", "pot" : 2, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c0" }, "name" : "Edinson Cavani", "pot" : 2, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c1" }, "name" : "Karim Benzema", "pot" : 2, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c2" }, "name" : "Mesut Özil", "pot" : 3, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c3" }, "name" : "Eden Hazard", "pot" : 3, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c4" }, "name" : "Andrés Iniesta", "pot" : 3, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c5" }, "name" : "Arjen Robben", "pot" : 3, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 2, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c6" }, "name" : "Oscar", "pot" : 3, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 1, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c7" }, "name" : "Yaya Toure", "pot" : 3, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c8" }, "name" : "Dani Alves", "pot" : 4, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801c9" }, "name" : "Phillip Lahm", "pot" : 4, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801ca" }, "name" : "David Luiz", "pot" : 4, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801cb" }, "name" : "Sergio Ramos", "pot" : 4, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801cc" }, "name" : "Pablo Zabaleta", "pot" : 4, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801cd" }, "name" : "Vincent Kompany", "pot" : 4, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801ce" }, "name" : "Wayne Rooney", "pot" : 5, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801cf" }, "name" : "Danny Wellbeck", "pot" : 5, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801d0" }, "name" : "Daniel Sturridge", "pot" : 5, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801d1" }, "name" : "Steven Gerrard", "pot" : 5, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801d2" }, "name" : "Raheem Sterling", "pot" : 5, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
+{ "_id" : { "$oid" : "539875571faecb63495801d3" }, "name" : "Ricky Lambert", "pot" : 5, "game" : { "$oid" : "53959190e4b0a2f0b57062b8" }, "score" : 0, "__v" : 0 }
