@@ -13,12 +13,16 @@ angular.module('myApp', ['ngRoute', 'myApp.filters', 'myApp.services', 'myApp.di
 				templateUrl: '/app/partials/selections.html',
 				controller: 'SelectionsCtrl'
 			});
+			$routeProvider.when('/picks', {
+				templateUrl: '/app/partials/picks.html',
+				controller: 'PicksCtrl'
+			});
 			$routeProvider.when('/about', {
 				templateUrl: '/app/partials/about.html',
 				controller: 'AboutCtrl'
 			});
 			$routeProvider.otherwise({
-				redirectTo: '/selections'
+				redirectTo: '/table'
 			});
 		}
 	]);

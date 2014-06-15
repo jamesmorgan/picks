@@ -3,7 +3,7 @@
 var GAME_ID = '53959190e4b0a2f0b57062b8';
 /* Controllers */
 angular.module('myApp.controllers', [])
-  .controller('SelectionsCtrl', function($scope, $http, $log, Selection, Pick) {
+  .controller('PicksCtrl', function($scope, $http, $log, Selection, Pick) {
     $scope.game = {};
     $scope.submitted = false;
     $scope.player = "";
@@ -11,7 +11,7 @@ angular.module('myApp.controllers', [])
     $scope.pots = [];
     $scope.potsel = [];
 
-    $scope.loadSelections = function() {
+    $scope.loadPicks = function() {
       $log.debug('load game and selections: ' + GAME_ID);
 
       $http.get('/game/' + GAME_ID).then(function(response) {
@@ -24,7 +24,7 @@ angular.module('myApp.controllers', [])
           function() {
             $scope.pots = _.groupBy($scope.selections, 'pot');
             angular.forEach($scope.pots, function(sels, key) {
-              $scope.potsel[key-1] = sels[0]._id;    
+              $scope.potsel[key - 1] = sels[0]._id;
             });
           });
       });
@@ -69,6 +69,24 @@ angular.module('myApp.controllers', [])
               }, 0)
             }
           });
+        });
+      });
+    }
+  })
+  .controller('SelectionsCtrl', function($scope, $log, $http) {
+    $scope.game = {};
+    $scope.selections = []
+
+    $scope.loadSelections = function() {
+      $log.debug('load game and selections: ' + GAME_ID);
+
+      $http.get('/game/' + GAME_ID).then(function(response) {
+        $log.debug('loaded game ' + response.status);
+        $scope.game = response.data;
+
+        $http.get('/selections/' + GAME_ID).then(function(response) {
+          $log.debug('loaded selections ' + response.status);
+          $scope.selections = response.data;
         });
       });
     }
