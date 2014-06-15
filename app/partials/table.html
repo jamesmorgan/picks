@@ -4,7 +4,7 @@
         <tr>
             <th></th>
             <th>Name</th>
-            <th class="hidden-xs hidden-sm">Selections</th>
+            <th>Selections</th>
             <th class="text-center">Total</th>
         </tr>
         <tr ng-repeat="pt in picksTotal | orderBy:'total':true">
@@ -13,7 +13,7 @@
             <!--<img src="http://graph.facebook.com/{{pt.facebook}}/picture" alt="{{ pt.name }}" class="img-circle profile-img">&nbsp; -->
                 <strong>{{ pt.name }}</strong>
             </td>
-            <td class="hidden-xs hidden-sm">
+            <td>
                 <small ng-show="game.status != 'open'">{{ pt.selections }}</small>
                 <small ng-show="game.status == 'open'"><em>selections will be shown when game is in-play...</em></small>
             </td>
