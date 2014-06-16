@@ -16,7 +16,7 @@
                 <strong ng-if="!admin">{{ s.score }}</strong>
                 <form class="form-inline" role="form" ng-if="admin">
                     <input type="number" value="{{ s.score }}" class="input-lg form-control admin-control" min="0" max="999"/>
-                    <button type="submit" class="btn btn-success input-lg form-control" ng-disabled="submitted" ng-click="update(s._id)">Go</button>
+                    <button type="submit" class="btn btn-success input-lg form-control" ng-disabled="submitted" ng-click="update(s._id)"><span class="glyphicon glyphicon-log-in"></span></button>
                 </form>
             </td>
         </tr>
