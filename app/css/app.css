@@ -36,6 +36,10 @@ h2 {
 	padding-right: 5px;
 }
 
+.admin-control {
+   width:100px;
+}
+
 /* Extra Small */
 @media(max-width:767px){
 	.table-selections {

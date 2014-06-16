@@ -12,9 +12,18 @@
             <td>
                 <strong>{{ s.name }}</strong>
             </td>
-            <td class="text-center"><strong>{{ s.score }}</strong></td>
+            <td class="text-center">
+                <strong ng-if="!admin">{{ s.score }}</strong>
+                <form class="form-inline" role="form" ng-if="admin">
+                    <input type="number" value="{{ s.score }}" class="input-lg form-control admin-control" min="0" max="999"/>
+                    <button type="submit" class="btn btn-success input-lg form-control" ng-disabled="submitted" ng-click="update(s._id)">Go</button>
+                </form>
+            </td>
         </tr>
     </table>
 
    <div class="well">{{ game.description }}</div>
+</div>
+<div>
+    <a ng-click="adminAuth()" class="text-muted pull-right">admin</a>
 </div>

@@ -73,7 +73,9 @@ angular.module('myApp.controllers', [])
   })
   .controller('SelectionsCtrl', function($scope, $log, $http) {
     $scope.game = {};
-    $scope.selections = []
+    $scope.selections = [];
+    $scope.admin = false;
+    $scope.adminPass = "pickles66";
 
     $scope.loadSelections = function() {
       $log.debug('load game and selections: ' + GAME_ID);
@@ -87,6 +89,20 @@ angular.module('myApp.controllers', [])
           $scope.selections = response.data;
         });
       });
+    }
+
+    $scope.adminAuth = function() {
+      $log.debug('auth admin for game: ' + GAME_ID);
+      $http.get('/game/' + GAME_ID + '/auth/' + $scope.adminPass).then(function(response) {
+        if (response.data.auth) {
+          $log.info('auth admin OK');  
+          $scope.admin = true;
+        }
+      });
+    }
+
+    $scope.update = function(id) {
+      $log.debug('auth update for selection: ' + id);
     }
   })
   .controller('NavCtrl', function($scope, $location) {
