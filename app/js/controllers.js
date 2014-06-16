@@ -61,10 +61,7 @@ angular.module('myApp.controllers', [])
           $scope.picksTotal = _.map($scope.picks, function(pick) {
             return {
               "name": pick.name,
-              "selections": _.reduce(pick.selections, function(soFar, selection) {
-                  return soFar + selection.name + ' [' + selection.score + '] '
-                },
-                ""),
+              "selections": pick.selections,
               "total": _.reduce(pick.selections, function(totalSoFar, selection) {
                 return totalSoFar + selection.score;
               }, 0)
