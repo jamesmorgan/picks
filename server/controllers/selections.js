@@ -6,6 +6,14 @@ exports.setup = function(app, mongoose) {
 		description: String,
 		order: String,
 		status: String,
+		gamePass: {
+			type: String,
+			select: false
+		},
+		adminPass: {
+			type: String,
+			select: false
+		},
 		selections: [{
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Selection'
@@ -57,6 +65,7 @@ exports.setup = function(app, mongoose) {
 
 	// games
 	app.get('/games', function(req, res) {
+		console.log('GET /games');
 		Game.find({}, function(err, docs) {
 			res.send(docs);
 		});
@@ -69,6 +78,23 @@ exports.setup = function(app, mongoose) {
 		}, function(err, data) {
 			res.send(data);
 		}).populate('selections');
+	});
+
+	app.get('/game/:id/auth/:pass', function(req, res) {
+		console.log('GET /game/' + req.params.id + '/auth/******');
+		Game.findOne({
+			'adminPass': req.params.pass
+		}, function(err, data) {
+			if (data) {
+				res.send({
+					'auth': true
+				});
+			} else {
+				res.send({
+					'auth': false
+				});
+			}
+		});
 	});
 
 	// picks
