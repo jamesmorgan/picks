@@ -19,3 +19,7 @@ body {
 h2 {
 	color: #428bca;
 }
+
+.font-inc {
+	font-size: 150%;
+}

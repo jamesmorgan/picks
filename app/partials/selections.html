@@ -7,7 +7,7 @@
             <th>Name</th>
             <th class="text-center">Total</th>
         </tr>
-        <tr ng-repeat="s in selections | orderBy:'score':true">
+        <tr ng-repeat="s in selections | orderBy:'score':true" ng-class="{'font-inc': $index < 3}">
             <td><span class="text-muted">{{ $index + 1 }}</span></td>
             <td>
                 <strong>{{ s.name }}</strong>

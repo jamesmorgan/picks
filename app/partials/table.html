@@ -7,10 +7,9 @@
             <th>Selections</th>
             <th class="text-center">Total</th>
         </tr>
-        <tr ng-repeat="pt in picksTotal | orderBy:'total':true">
+        <tr ng-repeat="pt in picksTotal | orderBy:'total':true" ng-class="{'font-inc': $index < 3}">
             <td><span class="text-muted">{{ $index + 1 }}</span></td>
             <td>
-            <!--<img src="http://graph.facebook.com/{{pt.facebook}}/picture" alt="{{ pt.name }}" class="img-circle profile-img">&nbsp; -->
                 <strong>{{ pt.name }}</strong>
             </td>
             <td>
