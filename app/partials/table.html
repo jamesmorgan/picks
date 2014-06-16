@@ -7,20 +7,23 @@
             <th>Selections</th>
             <th class="text-center">Total</th>
         </tr>
-        <tr ng-repeat="pt in picksTotal | orderBy:'total':true" ng-class="{'font-inc': $index < 3}">
-            <td><span class="text-muted">{{ $index + 1 }}</span></td>
-            <td>
+        <tr ng-repeat="pt in picksTotal | orderBy:'total':true">
+            <td ng-class="{'font-inc': $index < 3}"><span class="text-muted">{{ $index + 1 }}</span></td>
+            <td ng-class="{'font-inc': $index < 3}">
                 <strong>{{ pt.name }}</strong>
             </td>
             <td>
                 <small ng-show="game.status != 'open'">
-                    <div ng-repeat="s in pt.selections">
-                        {{ s.name }} <span class="pull-right">{{ s.score }}</span>
+                    <div ng-repeat="s in pt.selections" class="table-selections min-width-md">
+                        <span class="label label-default">
+                            <span class="right-pad-sm">{{ s.name }}</span> 
+                            <span class="right-pad-sm">{{ s.score }}</span>
+                        </span>
                     </div>    
                 </small>
                 <small ng-show="game.status == 'open'"><em>selections will be shown when game is in-play...</em></small>
             </td>
-            <td class="text-center"><strong>{{ pt.total }}</strong></td>
+            <td ng-class="{'font-inc': $index < 3, 'text-center': true}"><strong>{{ pt.total }}</strong></td>
         </tr>
     </table>
 

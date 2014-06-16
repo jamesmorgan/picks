@@ -23,3 +23,36 @@ h2 {
 .font-inc {
 	font-size: 150%;
 }
+
+.font-dec {
+	font-size: 80%;
+}
+
+.right-pad-md {
+	padding-right: 10px;
+}
+
+.right-pad-sm {
+	padding-right: 5px;
+}
+
+/* Extra Small */
+@media(max-width:767px){
+	.table-selections {
+		display: block;
+	}
+}
+
+/* Small */
+@media(min-width:768px) and (max-width:991px){
+	.table-selections {
+		display: block;
+	}
+}
+
+/* Medium upwards */
+@media(min-width:992px) {
+	.table-selections {
+		display: inline-block;
+	}
+}
