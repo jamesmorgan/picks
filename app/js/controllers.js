@@ -75,7 +75,7 @@ angular.module('myApp.controllers', [])
     $scope.game = {};
     $scope.selections = [];
     $scope.admin = false;
-    $scope.adminPass = "pickles66";
+    $scope.adminPass = '';
     $scope.submitted = false;
     $scope.updateSelections = {};
 
