@@ -16,14 +16,14 @@
                 <strong ng-if="!admin">{{ s.score }}</strong>
                 <form class="form-inline" role="form" ng-if="admin">
                     <input type="number" value="{{ s.score }}" class="input-lg form-control admin-control" min="0" max="999"/>
-                    <button type="submit" class="btn btn-success input-lg form-control" ng-disabled="submitted" ng-click="update(s._id)"><span class="glyphicon glyphicon-log-in"></span></button>
+                    <button type="button" class="btn btn-default input-lg form-control" ng-disabled="submitted" ng-click="update(s._id)"><span class="glyphicon glyphicon-log-in"></span></button>
                 </form>
             </td>
         </tr>
     </table>
-
+    <pre>{{ updateSelections }}</pre>
    <div class="well">{{ game.description }}</div>
 </div>
 <div>
-    <a ng-click="adminAuth()" class="text-muted pull-right">admin</a>
+    <a ng-click="adminAuth()" class="text-muted pull-right"><span class="glyphicon glyphicon-cloud-upload"></span></a>
 </div>

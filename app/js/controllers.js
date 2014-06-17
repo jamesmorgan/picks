@@ -76,6 +76,7 @@ angular.module('myApp.controllers', [])
     $scope.selections = [];
     $scope.admin = false;
     $scope.adminPass = "pickles66";
+    $scope.updateSelections = [];
 
     $scope.loadSelections = function() {
       $log.debug('load game and selections: ' + GAME_ID);
