@@ -15,13 +15,12 @@
             <td class="text-center">
                 <strong ng-if="!admin">{{ s.score }}</strong>
                 <form class="form-inline" role="form" ng-if="admin">
-                    <input type="number" value="{{ s.score }}" class="input-lg form-control admin-control" min="0" max="999"/>
+                    <input type="number" ng-model="updateSelections[s._id]" class="input-lg form-control admin-control" min="0" max="999"/>
                     <button type="button" class="btn btn-default input-lg form-control" ng-disabled="submitted" ng-click="update(s._id)"><span class="glyphicon glyphicon-log-in"></span></button>
                 </form>
             </td>
         </tr>
     </table>
-    <pre>{{ updateSelections }}</pre>
    <div class="well">{{ game.description }}</div>
 </div>
 <div>

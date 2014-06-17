@@ -76,7 +76,8 @@ angular.module('myApp.controllers', [])
     $scope.selections = [];
     $scope.admin = false;
     $scope.adminPass = "pickles66";
-    $scope.updateSelections = [];
+    $scope.submitted = false;
+    $scope.updateSelections = {};
 
     $scope.loadSelections = function() {
       $log.debug('load game and selections: ' + GAME_ID);
@@ -88,6 +89,9 @@ angular.module('myApp.controllers', [])
         $http.get('/selections/' + GAME_ID).then(function(response) {
           $log.debug('loaded selections ' + response.status);
           $scope.selections = response.data;
+          angular.forEach($scope.selections, function(value, key) {
+              $scope.updateSelections[value._id] = value.score;
+          });
         });
       });
     }
@@ -103,7 +107,8 @@ angular.module('myApp.controllers', [])
     }
 
     $scope.update = function(id) {
-      $log.debug('auth update for selection: ' + id);
+      $log.debug('auth update for selection: ' + id + ', with value:' + $scope.updateSelections[id]);
+      $scope.submitted = true;
     }
   })
   .controller('NavCtrl', function($scope, $location) {
