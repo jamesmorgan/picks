@@ -92,6 +92,7 @@ angular.module('myApp.controllers', [])
           angular.forEach($scope.selections, function(value, key) {
               $scope.updateSelections[value._id] = value.score;
           });
+          $scope.submitted = false;
         });
       });
     }
@@ -107,8 +108,14 @@ angular.module('myApp.controllers', [])
     }
 
     $scope.update = function(id) {
-      $log.debug('auth update for selection: ' + id + ', with value:' + $scope.updateSelections[id]);
+      $log.debug('auth update for selection: ' + id + ', with value: ' + $scope.updateSelections[id]);
       $scope.submitted = true;
+      if (_.isNumber($scope.updateSelections[id])) {
+        var data = {adminPass: $scope.adminPass, _id: id, score: $scope.updateSelections[id]};
+        $http.post('/selections/' + GAME_ID + '/update', data).then(function(response) {
+            $scope.loadSelections();
+        });
+      }
     }
   })
   .controller('NavCtrl', function($scope, $location) {
