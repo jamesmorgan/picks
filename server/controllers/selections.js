@@ -23,7 +23,7 @@ exports.setup = function(app, mongoose) {
 	var selectionSchema = new mongoose.Schema({
 		name: String,
 		pot: Number,
-		value: Number,
+		score: Number,
 		game: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Game'
@@ -60,6 +60,36 @@ exports.setup = function(app, mongoose) {
 			'game': req.params.gameid
 		}, function(err, docs) {
 			res.send(docs);
+		});
+	});
+
+	app.post('/selections/:gameid/update', function(req, res) {
+		console.log('GET /selections/' + req.params.gameid + '/update');
+		Game.findOne({
+			'adminPass': req.body.adminPass
+		}, function(err, data) {
+			if (data) {
+				Selection.findByIdAndUpdate(req.body._id, {
+					$set: {
+						score: req.body.score
+					}
+				}, function(err, sel) {
+					if (err) {
+						res.send({
+							'update': false
+						});
+					} else {
+						res.send({
+							'update': true
+						});
+					}
+
+				});
+			} else {
+				res.send({
+					'update': false
+				});
+			}
 		});
 	});
 

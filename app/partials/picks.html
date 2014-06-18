@@ -2,6 +2,8 @@
 <div class="clearfix"></div>
 <div ng-init="loadPicks()" class="col-sm-8 col-sm-offset-2 ">
 
+    <div ng-show="game.status != 'open'" class="alert alert-warning">Game started...<br/>Check out the ongoing <a href="/#/table">Table</a>!</div>
+
     <div class="well">{{ game.description }}</div>
 
     <div ng-show="submitted" class="alert alert-success">Thanks {{ name}}. Your selections are in. Good luck! Check out the <a href="/#/table">table</a>.</div>
@@ -27,6 +29,6 @@
         </div>
     </form>
 
-    <div ng-show="game.status != 'open'" class="alert alert-warning">Game started...<br/>Check out the ongoing <a href="/#/table">Table</a>!</div>
+
 
 </div>
