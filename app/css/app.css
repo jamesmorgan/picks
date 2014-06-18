@@ -45,12 +45,16 @@ h2 {
 	.table-selections {
 		display: block;
 	}
+	
+	.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+		padding: 6px;
+	}
 }
 
 /* Small */
 @media(min-width:768px) and (max-width:991px){
 	.table-selections {
-		display: block;
+		display: inline-block;
 	}
 }
 
