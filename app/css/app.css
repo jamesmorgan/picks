@@ -40,6 +40,10 @@ h2 {
    width:40px;
 }
 
+.top-pad-sm {
+    padding-top: 5px;
+}
+
 /* Extra Small */
 @media(max-width:767px){
 	.table-selections {
