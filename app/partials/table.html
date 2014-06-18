@@ -19,12 +19,14 @@
                 <small ng-show="game.status != 'open'">
                     <div ng-repeat="s in pt.selections" class="table-selections min-width-md">
                         <span ng-class="{'label': true, 'label-default': s.score == 0, 'label-success': s.score > 0}">
-                            <span class="right-pad-sm">{{ s.name }}</span> 
+                            <span class="right-pad-sm">{{ s.name }}</span>
                             <span class="right-pad-sm">{{ s.score }}</span>
                         </span>
-                    </div>    
+                    </div>
                 </small>
-                <small ng-show="game.status == 'open'"><em>shown when game is in-play...</em></small>
+                <small ng-show="game.status == 'open'">
+                    <em>shown when game is in-play...</em>
+                </small>
             </td>
             <td ng-class="{'font-inc': $index < 3, 'text-center': true}">
                 <strong>{{ pt.total }}</strong>

@@ -23,9 +23,6 @@ app.use("/app", function(req, res, next) {
 
 // Setup models and controllers.
 // Both Model and Controller is kept in same file for simplicity sake
-var users = require('./controllers/users');
-users.setup(app, mongoose);
-
 var selections = require('./controllers/selections');
 selections.setup(app, mongoose);
 
