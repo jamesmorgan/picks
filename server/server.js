@@ -3,11 +3,9 @@ var path = require('path'),
 	app = express(),
 	mongoose = require('mongoose');
 
-var dbusr = process.env.MONGOLABUSR,
-	dbpw = process.env.MONGOLABPW,
-	db = 'picks',
-	dbURI = 'mongodb://picks:picks@ds027908.mongolab.com:27908/' + db;
+var dbURI = 'mongodb://' + process.env.MONGOLABUSR + ':' + process.env.MONGOLABPW + '@' + process.env.MONGOLABURI + ':' + process.env.MONGOLABPORT + '/picks';
 
+console.log('connecting to ' + dbURI);
 mongoose.connect(dbURI);
 
 // Needs to be used in such that req.body automatically gets parsed properly.
