@@ -42,7 +42,7 @@ angular.module('myApp.controllers', [])
                 name: $scope.player,
                 game: GAME_ID,
                 selections: $scope.potsel
-            }
+            };
 
             $scope.clicked = true;
             $http.post('/picks', picks).then(function(response) {
@@ -118,11 +118,13 @@ angular.module('myApp.controllers', [])
             $log.debug('auth update for selection: ' + id + ', with value: ' + $scope.updateSelections[id]);
             $scope.submitted = true;
             if (_.isNumber($scope.updateSelections[id])) {
+
                 var data = {
                     adminPass: $scope.adminPass,
                     _id: id,
                     score: $scope.updateSelections[id]
                 };
+
                 $http.post('/selections/' + GAME_ID + '/update', data).then(function(response) {
                     $scope.loadSelections();
                 });
