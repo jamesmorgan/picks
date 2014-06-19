@@ -17,9 +17,9 @@ angular.module('myApp', ['ngRoute', 'myApp.filters', 'myApp.services', 'myApp.di
 				templateUrl: '/app/partials/picks.html',
 				controller: 'PicksCtrl'
 			});
-			$routeProvider.when('/about', {
-				templateUrl: '/app/partials/about.html',
-				controller: 'AboutCtrl'
+			$routeProvider.when('/games', {
+				templateUrl: '/app/partials/games.html',
+				controller: 'GamesCtrl'
 			});
 			$routeProvider.otherwise({
 				redirectTo: '/table'

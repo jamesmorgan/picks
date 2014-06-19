@@ -1,12 +1,16 @@
 'use strict';
 
+// world cup
 // var GAME_ID = '53959190e4b0a2f0b57062b8';
+
+// golf
 var GAME_ID = '536cdbe0f524632c35b29e6e';
 
 /* Controllers */
 angular.module('myApp.controllers', [])
-    .controller('PicksCtrl', function($scope, $http, $log, Pick) {
+    .controller('PicksCtrl', function($scope, $http, $log) {
         $scope.game = {};
+        $scope.clicked = false;
         $scope.submitted = false;
         $scope.player = "";
         $scope.selections = [];
@@ -32,15 +36,18 @@ angular.module('myApp.controllers', [])
         }
 
         $scope.submitSelections = function() {
-            console.log($scope);
             $log.debug('submit picks for ' + $scope.player);
-            var picks = new Pick({
+
+            var picks = {
                 name: $scope.player,
                 game: GAME_ID,
                 selections: $scope.potsel
+            }
+
+            $scope.clicked = true;
+            $http.post('/picks', picks).then(function(response) {
+                $scope.submitted = true;    
             });
-            picks.$save();
-            $scope.submitted = true;
         }
     })
     .controller('TableCtrl', function($scope, $log, $http) {
@@ -127,6 +134,6 @@ angular.module('myApp.controllers', [])
             return $location.path() == path;
         }
     })
-    .controller('AboutCtrl', function($scope) {
+    .controller('GamesCtrl', function($scope) {
 
     });
