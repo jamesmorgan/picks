@@ -22,7 +22,7 @@ app.use("/app", function(req, res, next) {
 
 // Setup models and controllers.
 // Both Model and Controller is kept in same file for simplicity sake
-var selections = require('./controllers/selections');
+var selections = require('./controllers/api');
 selections.setup(app, mongoose);
 
 // This is the route that sends the base index.html file all other routes are
