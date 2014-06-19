@@ -114,12 +114,11 @@ exports.setup = function(app, mongoose) {
                 res.send({
                     'auth': true
                 });
-                return;
+            } else {
+                res.send({
+                    'auth': false
+                });
             }
-
-            res.send({
-                'auth': false
-            });
         });
     });
 
