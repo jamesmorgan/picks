@@ -1,5 +1,8 @@
 <h2 class="lobster pull-right">Games</h2>
 <div class="clearfix"></div>
-<h4>Open</h4>
-<h4>In-Play</h4>
-<h4>Complete</h4>
+<div ng-init="loadGames()" class="col-sm-8 col-sm-offset-2 ">
+	{{ games }}
+	<h4>Open</h4>
+	<h4>In-Play</h4>
+	<h4>Complete</h4>
+</div>

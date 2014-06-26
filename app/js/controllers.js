@@ -46,7 +46,7 @@ angular.module('myApp.controllers', [])
 
             $scope.clicked = true;
             $http.post('/picks', picks).then(function(response) {
-                $scope.submitted = true;    
+                $scope.submitted = true;
             });
         }
     })
@@ -136,6 +136,15 @@ angular.module('myApp.controllers', [])
             return $location.path() == path;
         }
     })
-    .controller('GamesCtrl', function($scope) {
+    .controller('GamesCtrl', function($scope, $log, $http) {
+        $scope.games = [];
 
-    });
+        $scope.loadGames = function() {
+            $log.debug('load games');
+
+            $http.get('/games').then(function(response) {
+                $log.debug('loaded games ' + response.status);
+                $scope.games = response.data;
+            });
+        }
+    })
