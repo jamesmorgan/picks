@@ -1,14 +1,8 @@
 'use strict';
 
-// world cup
-// var GAME_ID = '53959190e4b0a2f0b57062b8';
-
-// golf
-var GAME_ID = '536cdbe0f524632c35b29e6e';
-
 /* Controllers */
 angular.module('myApp.controllers', [])
-    .controller('PicksCtrl', function($scope, $http, $log) {
+    .controller('PicksCtrl', function($scope, $rootScope, $http, $log, $routeParams) {
         $scope.game = {};
         $scope.clicked = false;
         $scope.submitted = false;
@@ -18,13 +12,16 @@ angular.module('myApp.controllers', [])
         $scope.potsel = [];
 
         $scope.loadPicks = function() {
-            $log.debug('load game and selections: ' + GAME_ID);
+            if ($routeParams.gameId) {
+                $rootScope.gameId = $routeParams.gameId;
+            }
+            $log.debug('load game and selections: ' + $rootScope.gameId);
 
-            $http.get('/game/' + GAME_ID).then(function(response) {
+            $http.get('/game/' + $rootScope.gameId).then(function(response) {
                 $log.debug('loaded game ' + response.status);
                 $scope.game = response.data;
 
-                $http.get('/selections/' + GAME_ID).then(function(response) {
+                $http.get('/selections/' + $rootScope.gameId).then(function(response) {
                     $log.debug('loaded selections ' + response.status);
                     $scope.selections = response.data;
                     $scope.pots = _.groupBy($scope.selections, 'pot');
@@ -40,7 +37,7 @@ angular.module('myApp.controllers', [])
 
             var picks = {
                 name: $scope.player,
-                game: GAME_ID,
+                game: $rootScope.gameId,
                 selections: $scope.potsel
             };
 
@@ -50,19 +47,23 @@ angular.module('myApp.controllers', [])
             });
         }
     })
-    .controller('TableCtrl', function($scope, $log, $http) {
+    .controller('TableCtrl', function($scope, $rootScope, $log, $http, $routeParams) {
         $scope.game = {};
         $scope.picks = [];
         $scope.picksTotal = [];
 
         $scope.loadPicks = function() {
-            $log.debug('load game and picks: ' + GAME_ID);
+            if ($routeParams.gameId) {
+                $rootScope.gameId = $routeParams.gameId;
+            }
+            $log.debug('load game and picks: ' + $rootScope.gameId);
+            console.log($routeParams);
 
-            $http.get('/game/' + GAME_ID).then(function(response) {
+            $http.get('/game/' + $rootScope.gameId).then(function(response) {
                 $log.debug('loaded game ' + response.status);
                 $scope.game = response.data;
 
-                $http.get('/picks/' + GAME_ID).then(function(response) {
+                $http.get('/picks/' + $rootScope.gameId).then(function(response) {
                     $log.debug('loaded picks ' + response.status);
                     $scope.picks = response.data;
                     $scope.picksTotal = _.map($scope.picks, function(pick) {
@@ -78,7 +79,7 @@ angular.module('myApp.controllers', [])
             });
         }
     })
-    .controller('SelectionsCtrl', function($scope, $log, $http) {
+    .controller('SelectionsCtrl', function($scope, $rootScope, $log, $http, $routeParams) {
         $scope.game = {};
         $scope.selections = [];
         $scope.admin = false;
@@ -87,13 +88,16 @@ angular.module('myApp.controllers', [])
         $scope.updateSelections = {};
 
         $scope.loadSelections = function() {
-            $log.debug('load game and selections: ' + GAME_ID);
+            if ($routeParams.gameId) {
+                $rootScope.gameId = $routeParams.gameId;
+            }
+            $log.debug('load game and selections: ' + $rootScope.gameId);
 
-            $http.get('/game/' + GAME_ID).then(function(response) {
+            $http.get('/game/' + $rootScope.gameId).then(function(response) {
                 $log.debug('loaded game ' + response.status);
                 $scope.game = response.data;
 
-                $http.get('/selections/' + GAME_ID).then(function(response) {
+                $http.get('/selections/' + $rootScope.gameId).then(function(response) {
                     $log.debug('loaded selections ' + response.status);
                     $scope.selections = response.data;
                     angular.forEach($scope.selections, function(value, key) {
@@ -105,8 +109,8 @@ angular.module('myApp.controllers', [])
         }
 
         $scope.adminAuth = function() {
-            $log.debug('auth admin for game: ' + GAME_ID);
-            $http.get('/game/' + GAME_ID + '/auth/' + $scope.adminPass).then(function(response) {
+            $log.debug('auth admin for game: ' + $rootScope.gameId);
+            $http.get('/game/' + $rootScope.gameId + '/auth/' + $scope.adminPass).then(function(response) {
                 if (response.data.auth) {
                     $log.info('auth admin OK');
                     $scope.admin = true;
@@ -125,7 +129,7 @@ angular.module('myApp.controllers', [])
                     score: $scope.updateSelections[id]
                 };
 
-                $http.post('/selections/' + GAME_ID + '/update', data).then(function(response) {
+                $http.post('/selections/' + $rootScope.gameId + '/update', data).then(function(response) {
                     $scope.loadSelections();
                 });
             }

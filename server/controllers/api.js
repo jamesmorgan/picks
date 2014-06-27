@@ -4,7 +4,7 @@ exports.setup = function(app, mongoose) {
         name: String,
         type: String,
         description: String,
-        order: String,
+        order: Boolean,
         status: String,
         gamePass: {
             type: String,
