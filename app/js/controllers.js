@@ -118,15 +118,15 @@ angular.module('myApp.controllers', [])
             });
         }
 
-        $scope.update = function(id) {
-            $log.debug('auth update for selection: ' + id + ', with value: ' + $scope.updateSelections[id]);
+        $scope.update = function(id, score) {
+            $log.debug('auth update for selection: ' + id + ', with value: ' + score);
             $scope.submitted = true;
-            if (_.isNumber($scope.updateSelections[id])) {
+            if (_.isNumber(score)) {
 
                 var data = {
                     adminPass: $scope.adminPass,
                     _id: id,
-                    score: $scope.updateSelections[id]
+                    score: score + 1
                 };
 
                 $http.post('/selections/' + $rootScope.gameId + '/update', data).then(function(response) {

@@ -7,6 +7,7 @@
             <th></th>
             <th>Name</th>
             <th class="text-center">Total</th>
+            <th ng-if="admin"></th>
         </tr>
         <tr ng-repeat="s in selections | orderBy:'score':true" ng-class="{'font-inc': $index < 3}">
             <td>
@@ -16,11 +17,14 @@
                 <strong>{{ s.name }}</strong>
             </td>
             <td class="text-center">
-                <strong ng-if="!admin">{{ s.score }}</strong>
+                <strong>{{ s.score }}</strong>
+            </td>
+            <td ng-if="admin">
                 <form class="form-inline" role="form" ng-if="admin">
-                    <input type="number" ng-model="updateSelections[s._id]" class="form-control admin-control" min="0" max="999" />
-                    <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id)">
-                        <span class="glyphicon glyphicon-log-in"></span>
+                    <!--<input type="number" ng-model="updateSelections[s._id]" class="form-control admin-control" min="0" max="999" />-->
+
+                    <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score)">
+                        <span class="glyphicon glyphicon-plus"></span>
                     </button>
                 </form>
             </td>
