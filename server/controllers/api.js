@@ -88,6 +88,25 @@ exports.setup = function(app, mongoose) {
         });
     });
 
+    app.post('/selections/:gameid/:pot', function(req, res) {
+        console.log('GET /selections/' + req.params.gameid + '/' + req.params.pot);
+        
+        if (req.body) {
+            
+            req.body.map(function(sel) {
+                console.log('adding [' + sel + '] to pot ' + req.params.pot + ' for game ' + req.params.gameid);
+            });
+
+            res.send({
+                'update': true
+            });
+        } else {
+            res.send({
+                'update': false
+            });
+        }
+    });
+
     // games
     app.get('/games', function(req, res) {
         console.log('GET /games');
