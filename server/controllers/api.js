@@ -95,10 +95,20 @@ exports.setup = function(app, mongoose) {
             
             req.body.map(function(sel) {
                 console.log('adding [' + sel + '] to pot ' + req.params.pot + ' for game ' + req.params.gameid);
-            });
 
-            res.send({
-                'update': true
+                var newSel = {
+                    name: sel,
+                    pot: req.params.pot,
+                    score: 0,
+                    game: req.params.gameid
+                };
+                Selection.create(newSel, function(err, dbSel) {
+                    console.log('added to mongo [' + dbSel.name + ']');   
+                });
+
+                res.send({
+                    'update': true
+                });
             });
         } else {
             res.send({
