@@ -1,0 +1,10 @@
+select content
+from html 
+where url ="http://www.pgatour.com/stats/stat.186.html" and xpath="//td[@class='player-name']/a"
+
+
+select content
+from html 
+where url ="http://www.europeantour.com/europeantour/season=2014/tournamentid=2014054/leaderboard/index.html" and xpath="//*[@id="lbl"]/tbody"
+
+

@@ -47,11 +47,6 @@
     <div class="container">
         <div class="header" ng-controller="NavCtrl">
             <ul class="nav nav-pills pull-right">
-                <li ng-class="{ 'active' : isActive('/picks') }">
-                    <a href="#/picks">
-                        <span class="glyphicon glyphicon-heart-empty"></span>&nbsp;Picks
-                    </a>
-                </li>
                 <li ng-class="{ 'active' : isActive('/table') }">
                     <a href="#/table">
                         <span class="glyphicon glyphicon-list"></span>&nbsp;Table
@@ -63,7 +58,7 @@
                     </a>
                 </li>
             </ul>
-            <h1 class="text-muted lobster">Picks</h1>
+            <h1 class="text-muted lobster"><a href="#/games">Picks</a></h1>
         </div>
 
         <hr/>
