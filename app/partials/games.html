@@ -1,6 +1,6 @@
 <div ng-init="loadGames()">	
 	<table class="table table-striped">
-		<tr ng-repeat="game in games">
+		<tr ng-repeat="game in games|orderBy:'status':true">
 			<td><h2><span ng-class="{'label': true, 'label-default': game.status == 'closed', 'label-warning': game.status == 'inplay', 'label-success': game.status == 'open'}">{{ game.status }}</span></h2></td>
 			<td><h2 class="lobster">{{ game.name }}</h2></td>
 			<td>
