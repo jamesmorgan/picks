@@ -4,7 +4,7 @@
 			<td class="hidden-xs"><h3><span ng-class="{'label': true, 'label-default': game.status == 'closed', 'label-warning': game.status == 'inplay', 'label-success': game.status == 'open'}">{{ game.status }}</span></h3></td>
 			<td>
 				<h2 class="lobster">{{ game.name }}</h2>
-				<a class="btn btn-success" ng-show="game.status == 'open'" href="#/picks/{{ game._id }}"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;My Picks</a>
+				<a class="btn btn-success pull-right" ng-show="game.status == 'open'" href="#/picks/{{ game._id }}"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;My Picks</a>
 			</td>
 			<td>
 				<a class="btn btn-default" href="#/table/{{ game._id }}"><span class="glyphicon glyphicon-list"></span>&nbsp;Table</a>
