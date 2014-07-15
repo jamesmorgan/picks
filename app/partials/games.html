@@ -1,17 +1,25 @@
-<div ng-init="loadGames()">	
-	<table class="table table-striped">
-		<tr ng-repeat="game in games|orderBy:'status':true">
-			<td class="hidden-xs"><h3><span ng-class="{'label': true, 'label-default': game.status == 'closed', 'label-warning': game.status == 'inplay', 'label-success': game.status == 'open'}">{{ game.status }}</span></h3></td>
-			<td>
-				<h2 class="lobster">{{ game.name }}</h2>
-			</td>
-			<td>
-				<a class="btn btn-default bottom-pad-sm" href="#/table/{{ game._id }}"><span class="glyphicon glyphicon-list"></span>&nbsp;Table</a>
-				&nbsp;	
-				<a class="btn btn-default bottom-pad-sm" href="#/selections/{{ game._id }}"><span class="glyphicon glyphicon-stats"></span>&nbsp;Selections</a>
-				&nbsp;	
-				<a class="btn btn-success bottom-pad-sm" ng-show="game.status == 'open'" href="#/picks/{{ game._id }}"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;My Picks</a>
-			</td>
-		</tr> 
-	</table>	
+<div ng-init="loadGames()">
+    <table class="table table-striped">
+        <tr ng-repeat="game in games|orderBy:'status':true">
+            <td class="hidden-xs">
+                <h3>
+                    <span ng-class="{'label': true, 'label-default': game.status == 'closed', 'label-warning': game.status == 'inplay', 'label-success': game.status == 'open'}">{{ game.status }}</span>
+                </h3>
+            </td>
+            <td>
+                <h2 class="lobster">{{ game.name }}</h2>
+            </td>
+            <td>
+                <a class="btn btn-default bottom-pad-sm" href="#/table/{{ game._id }}">
+                    <span class="glyphicon glyphicon-list"></span>&nbsp;Table
+                </a>
+                <a class="btn btn-default bottom-pad-sm" href="#/selections/{{ game._id }}">
+                    <span class="glyphicon glyphicon-stats"></span>&nbsp;Selections
+                </a>
+                <a class="btn btn-success btn-lg bottom-pad-sm" href="#/picks/{{ game._id }}" ng-show="game.status == 'open'">
+                    <span class="glyphicon glyphicon-heart-empty"></span>&nbsp;My Picks
+                </a>
+            </td>
+        </tr>
+    </table>
 </div>
