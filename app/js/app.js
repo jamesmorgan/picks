@@ -26,7 +26,7 @@ angular.module('myApp', ['ngRoute', 'myApp.filters', 'myApp.services', 'myApp.di
 				controller: 'GamesCtrl'
 			});
 			$routeProvider.otherwise({
-				redirectTo: '/table/:gameId?'
+				redirectTo: '/games'
 			});
 		}
 	]);
