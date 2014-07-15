@@ -6,6 +6,7 @@
         <tr>
             <th></th>
             <th>Name</th>
+            <th class="hidden-xs"></th>
             <th class="text-center">Total</th>
             <th ng-if="admin"></th>
         </tr>
@@ -15,6 +16,9 @@
             </td>
             <td>
                 <strong>{{ s.name }}</strong>
+            </td>
+            <td class="hidden-xs">
+                <em class="text-muted">{{ game.pots[s.pot-1] }}</em>
             </td>
             <td class="text-center">
                 <strong>{{ s.score }}</strong>
