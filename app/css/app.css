@@ -40,6 +40,10 @@ h2 {
 	padding-right: 5px;
 }
 
+.bottom-pad-sm {
+	padding-bottom: 5px;
+}
+
 .admin-control {
    width:60px;
 }
