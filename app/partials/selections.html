@@ -1,7 +1,8 @@
+
 <h2 class="lobster pull-right">{{ game.name }}</h2>
 <div class="clearfix"></div>
-<div ng-init="loadSelections()">
 
+<div ng-init="loadSelections()">
     <table class="table table-striped">
         <tr>
             <th></th>
@@ -10,7 +11,7 @@
             <th class="text-center">Total</th>
             <th ng-if="admin"></th>
         </tr>
-        <tr ng-repeat="s in selections | orderBy:'score':game.order" ng-class="{'font-inc': $index < 3}">
+        <tr ng-repeat="s in selections | orderBy:'score':game.order | filter:filter" ng-class="{'font-inc': $index < 3}">
             <td>
                 <span class="text-muted">{{ $index + 1 }}</span>
             </td>
@@ -18,7 +19,7 @@
                 <strong>{{ s.name }}</strong>
             </td>
             <td class="hidden-xs">
-                <em class="text-muted">{{ game.pots[s.pot-1] }}</em>
+                <em class="text-muted">{{ game.pots[s.pot] }}</em>
             </td>
             <td class="text-center">
                 <strong>{{ s.score }}</strong>
@@ -36,7 +37,7 @@
             </td>
         </tr>
     </table>
-
+    <input type="text" placeholder="Type to filter..." name="filter" ng-model="filter" class="form-control bottom-pad-sm"/>
     <div class="well">{{ game.description }}</div>
 </div>
 <div>
