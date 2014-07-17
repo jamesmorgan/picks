@@ -16,14 +16,14 @@
                 <strong>{{ pt.name }}</strong>
             </td>
             <td>
-                <small ng-show="game.status != 'open'">
+                <span ng-show="game.status != 'open'">
                     <div ng-repeat="s in pt.selections" class="table-selections min-width-md">
-                        <span ng-class="{'label': true, 'label-default': s.score == 0, 'label-success': s.score > 0}">
+                        <span ng-class="{'label': true, 'label-default': s.score == 0, 'label-success': (game.type == 'golf' && s.score < 0) || (game.type == 'football' && s.score > 0), 'label-warning': (game.type == 'golf' && s.score > 0)}">
                             <span class="right-pad-sm">{{ s.name }}</span>
                             <span class="right-pad-sm">{{ s.score }}</span>
                         </span>
                     </div>
-                </small>
+                </span>
                 <small ng-show="game.status == 'open'">
                     <em>selections shown when game is inplay...</em>
                 </small>
