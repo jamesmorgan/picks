@@ -5,14 +5,14 @@
 <div ng-init="loadSelections()">
     <table class="table table-striped">
         <tr>
-            <th></th>
+            <th class="hidden-xs"></th>
             <th>Name</th>
             <th class="hidden-xs"></th>
             <th class="text-center">Total</th>
             <th ng-if="admin"></th>
         </tr>
         <tr ng-repeat="s in selections | orderBy:'score':game.order | filter:filter" ng-class="{'font-inc': $index < 3}">
-            <td>
+            <td class="hidden-xs">
                 <span class="text-muted">{{ $index + 1 }}</span>
             </td>
             <td>
@@ -56,12 +56,12 @@
                 </p>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form" name="authForm" novalidate>
+                <form class="form-horizontal" role="form" name="authForm" novalidate ng-submit="adminAuth()">
                     <div class="form-group">
                         <input type="password" class="form-control" ng-model="adminPass" required placeholder="type password..." />
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-success form-control" ng-disabled="submitted" ng-click="adminAuth()" data-dismiss="modal">Authenticate</button>
+                        <button type="button" class="btn btn-success form-control" ng-disabled="submitted" data-dismiss="modal">Authenticate</button>
                     </div>
                 </form>
             </div>

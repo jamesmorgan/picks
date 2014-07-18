@@ -45,22 +45,24 @@ h2 {
 	margin-bottom: 10px;
 }
 
-.admin-control {
-   width:60px;
-}
-
 .top-pad-sm {
     padding-top: 5px;
+}
+
+.admin-control {
+   width:60px;
 }
 
 /* Extra Small */
 @media(max-width:767px){
 	.table-selections {
 		display: block;
+		font-size: 90%;
 	}
 	
 	.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
 		padding: 6px;
+		font-size: 95%;
 	}
 }
 

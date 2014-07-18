@@ -3,13 +3,13 @@
 <div ng-init="loadPicks()">
     <table class="table table-striped">
         <tr>
-            <th></th>
+            <th class="hidden-xs"></th>
             <th>Name</th>
             <th>Selections</th>
             <th class="text-center">Total</th>
         </tr>
         <tr ng-repeat="pt in picksTotal | orderBy:'total':game.order">
-            <td ng-class="{'font-inc': $index < 3}">
+            <td ng-class="{'font-inc': $index < 3, 'hidden-xs': true}">
                 <span class="text-muted">{{ $index + 1 }}</span>
             </td>
             <td ng-class="{'font-inc': $index < 3}">
