@@ -2,4 +2,4 @@
 
 /* Services */
 
-angular.module('myApp.services', ['ngResource'])
+angular.module('myApp.services', [])

@@ -16,11 +16,19 @@ body {
 	font-family: 'Lobster', cursive, Arial, serif;
 }
 
-h1 a:link { 
+h3 a:link { 
 	text-decoration:none; 
 } 
 
 h2 {
+	color: #428bca;
+}
+
+h3 {
+	color: #428bca;
+}
+
+h4 {
 	color: #428bca;
 }
 

@@ -47,18 +47,18 @@
     <div class="container">
         <div class="header" ng-controller="NavCtrl">
             <ul class="nav nav-pills pull-right">
-                <li ng-class="{ 'active' : isActive('/table') }">
+                <li ng-class="{ 'active' : isActive('/table/') }">
                     <a href="#/table">
                         <span class="glyphicon glyphicon-list"></span>&nbsp;Table
                     </a>
                 </li>
-                <li ng-class="{ 'active' : isActive('/selections') }">
+                <li ng-class="{ 'active' : isActive('/selections/') }">
                     <a href="#/selections">
                         <span class="glyphicon glyphicon-stats"></span>&nbsp;Selections
                     </a>
                 </li>
             </ul>
-            <h1 class="text-muted lobster"><a href="#/games">Picks</a></h1>
+            <h3 class="text-muted lobster"><a href="#/games"><span class="glyphicon glyphicon-heart-empty font-dec"></span>&nbsp;Picks</a></h3>
         </div>
 
         <hr/>
@@ -74,7 +74,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-resource.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="app/js/app.js"></script>

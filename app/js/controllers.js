@@ -161,7 +161,7 @@ angular.module('myApp.controllers', [])
     })
     .controller('NavCtrl', function($scope, $location) {
         $scope.isActive = function(path) {
-            return $location.path() == path;
+            return $location.path().indexOf(path) != -1;
         }
     })
     .controller('GamesCtrl', function($scope, $log, $http) {

@@ -6,6 +6,7 @@ exports.setup = function(app, mongoose) {
         description: String,
         order: Boolean,
         status: String,
+        image: String,
         pots: [String],
         gamePass: {
             type: String,
