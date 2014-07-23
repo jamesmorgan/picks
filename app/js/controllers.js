@@ -126,10 +126,6 @@ angular.module('myApp.controllers', [])
         }
 
         $scope.gameSelections = function() {
-            if (_.isEmpty($scope.game)) {
-                return $scope.selections;
-            }
-
             if (['inplay', 'closed'].indexOf($scope.game.status) != -1) {
                 return $scope.picksSelections;
             } 
