@@ -5,7 +5,7 @@ angular
 // Declare app level module which depends on filters, and services
 angular.module('myApp', ['ngRoute', 'myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers'])
 	.run(function($rootScope) {
-		$rootScope.gameId = '536cdbe0f524632c35b29e6e';
+		$rootScope.gameId = '53ce53d6e4b0bc0f17437133';
 	})
 	.config(['$routeProvider',
 		function($routeProvider) {

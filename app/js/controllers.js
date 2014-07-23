@@ -17,19 +17,23 @@ angular.module('myApp.controllers', [])
             }
             $log.debug('load game and selections: ' + $rootScope.gameId);
 
-            $http.get('/game/' + $rootScope.gameId).then(function(response) {
-                $log.debug('loaded game ' + response.status);
-                $scope.game = response.data;
+            $http.get('/game/' + $rootScope.gameId)
+                .then(function(response) {
+                    $log.debug('loaded game ' + response.status);
+                    $scope.game = response.data;
 
-                $http.get('/selections/' + $rootScope.gameId).then(function(response) {
+                    return $http.get('/selections/' + $rootScope.gameId);
+                })
+                .then(function(response) {
                     $log.debug('loaded selections ' + response.status);
                     $scope.selections = response.data;
                     $scope.pots = _.groupBy($scope.selections, 'pot');
+
+                    // set first entry to initial value
                     angular.forEach($scope.pots, function(sels, key) {
                         $scope.potsel[key - 1] = sels[0]._id;
                     });
                 });
-            });
         }
 
         $scope.submitSelections = function() {
@@ -59,11 +63,14 @@ angular.module('myApp.controllers', [])
             $log.debug('load game and picks: ' + $rootScope.gameId);
             console.log($routeParams);
 
-            $http.get('/game/' + $rootScope.gameId).then(function(response) {
-                $log.debug('loaded game ' + response.status);
-                $scope.game = response.data;
+            $http.get('/game/' + $rootScope.gameId)
+                .then(function(response) {
+                    $log.debug('loaded game ' + response.status);
+                    $scope.game = response.data;
 
-                $http.get('/picks/' + $rootScope.gameId).then(function(response) {
+                    return $http.get('/picks/' + $rootScope.gameId)
+                })
+                .then(function(response) {
                     $log.debug('loaded picks ' + response.status);
                     $scope.picks = response.data;
                     $scope.picksTotal = _.map($scope.picks, function(pick) {
@@ -76,16 +83,16 @@ angular.module('myApp.controllers', [])
                         }
                     });
                 });
-            });
         }
     })
     .controller('SelectionsCtrl', function($scope, $rootScope, $log, $http, $routeParams) {
         $scope.game = {};
         $scope.selections = [];
+        $scope.picks = [];
+        $scope.picksSelections = [];
         $scope.admin = false;
         $scope.adminPass = '';
         $scope.submitted = false;
-        $scope.updateSelections = {};
 
         $scope.loadSelections = function() {
             if ($routeParams.gameId) {
@@ -93,19 +100,30 @@ angular.module('myApp.controllers', [])
             }
             $log.debug('load game and selections: ' + $rootScope.gameId);
 
-            $http.get('/game/' + $rootScope.gameId).then(function(response) {
-                $log.debug('loaded game ' + response.status);
-                $scope.game = response.data;
+            $http.get('/game/' + $rootScope.gameId)
+                .then(function(response) {
+                    $log.debug('loaded game ' + response.status);
+                    $scope.game = response.data;
 
-                $http.get('/selections/' + $rootScope.gameId).then(function(response) {
+                    return $http.get('/selections/' + $rootScope.gameId)
+                })
+                .then(function(response) {
                     $log.debug('loaded selections ' + response.status);
                     $scope.selections = response.data;
-                    angular.forEach($scope.selections, function(value, key) {
-                        $scope.updateSelections[value._id] = value.score;
-                    });
                     $scope.submitted = false;
+
+                    return $http.get('/picks/' + $rootScope.gameId)
+                })
+                .then(function(response) {
+                    $log.debug('unique picks ' + response.status);
+                    $scope.picks = response.data;
+                    var allPicks = _.flatten(_.map($scope.picks, function(pick) {
+                        return pick.selections;
+                    }));
+                    console.log(_.uniq(allPicks, function(pick) { 
+                        return pick._id;
+                    }));
                 });
-            });
         }
 
         $scope.adminAuth = function() {
@@ -122,7 +140,6 @@ angular.module('myApp.controllers', [])
             $log.debug('auth update for selection: ' + id + ', with value: ' + (score + offset));
             $scope.submitted = true;
             if (_.isNumber(score)) {
-
                 var data = {
                     adminPass: $scope.adminPass,
                     _id: id,

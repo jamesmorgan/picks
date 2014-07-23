@@ -26,12 +26,18 @@
             </td>
             <td ng-if="admin">
                 <form class="form-inline" role="form" ng-if="admin">
-                    <!--<input type="number" ng-model="updateSelections[s._id]" class="form-control admin-control" min="0" max="999" />-->
                     <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, -1)">
-                        <span class="glyphicon glyphicon-minus"></span>
+                        <span class="glyphicon glyphicon-minus"></span> 1
                     </button>
                     <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, 1)">
-                        <span class="glyphicon glyphicon-plus"></span>
+                        <span class="glyphicon glyphicon-plus"></span> 1
+                    </button>
+                    &nbsp;|&nbsp;
+                     <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, -5)">
+                        <span class="glyphicon glyphicon-minus"></span> 5
+                    </button>
+                    <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, 5)">
+                        <span class="glyphicon glyphicon-plus"></span> 5
                     </button>
                 </form>
             </td>
