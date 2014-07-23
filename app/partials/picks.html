@@ -2,12 +2,7 @@
 <div class="clearfix"></div>
 <div ng-init="loadPicks()" class="col-sm-8 col-sm-offset-2 ">
 
-    <div ng-show="game.status != 'open'" class="alert alert-warning">Game started...
-        <br/>Check out the ongoing <a href="/#/table">Table</a>!</div>
-
     <div class="well">{{ game.description }}</div>
-
-    <div ng-show="submitted" class="alert alert-success">Thanks {{ name}}. Your selections are in. Good luck! Check out the <a href="/#/table">table</a>.</div>
 
     <form class="form-horizontal" role="form" ng-submit="submitSelections()" name="selectionsForm" novalidate ng-show="game.status=='open'">
         <div class="form-group" ng-repeat="pot in pots" ng-form="potForm">
@@ -28,5 +23,7 @@
                 <button type="submit" class="btn btn-success input-lg form-control" ng-disabled="selectionsForm.$invalid || submitted || clicked" ng-show="pots"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;Submit Picks</button>
             </div>
         </div>
+        <div ng-show="submitted" class="alert alert-success">Nice one {{ name}} your picks are in!<br/>Keep an eye on the <a href="/#/table">table</a> for updates.</div>
+        <div ng-show="game.status != 'open'" class="alert alert-warning">Game in-play!<br/>Keep an eye on the <a href="/#/table">table</a> for updates.</div>
     </form>
 </div>

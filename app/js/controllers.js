@@ -88,7 +88,6 @@ angular.module('myApp.controllers', [])
     .controller('SelectionsCtrl', function($scope, $rootScope, $log, $http, $routeParams) {
         $scope.game = {};
         $scope.selections = [];
-        $scope.picks = [];
         $scope.picksSelections = [];
         $scope.admin = false;
         $scope.adminPass = '';
@@ -116,14 +115,26 @@ angular.module('myApp.controllers', [])
                 })
                 .then(function(response) {
                     $log.debug('unique picks ' + response.status);
-                    $scope.picks = response.data;
-                    var allPicks = _.flatten(_.map($scope.picks, function(pick) {
-                        return pick.selections;
-                    }));
-                    console.log(_.uniq(allPicks, function(pick) { 
-                        return pick._id;
-                    }));
+                    $scope.picksSelections = _.chain(response.data)
+                        .map(function(pick) {return pick.selections;})
+                        .flatten()
+                        .uniq(function(pick) {return pick._id;})
+                        .value();
+                    
+                    console.log($scope.picksSelections);
                 });
+        }
+
+        $scope.gameSelections = function() {
+            if (_.isEmpty($scope.game)) {
+                return $scope.selections;
+            }
+
+            if (['inplay', 'closed'].indexOf($scope.game.status) != -1) {
+                return $scope.picksSelections;
+            } 
+
+            return $scope.selections;
         }
 
         $scope.adminAuth = function() {
