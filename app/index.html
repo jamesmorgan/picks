@@ -44,15 +44,15 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="header" ng-controller="NavCtrl">
+    <div class="container" ng-controller="NavCtrl">
+        <div class="header">
             <ul class="nav nav-pills pull-right">
-                <li ng-class="{ 'active' : isActive('/table/') }">
+                <li ng-class="{ 'active' : isActive('/table') }">
                     <a href="#/table">
                         <span class="glyphicon glyphicon-list"></span>&nbsp;Table
                     </a>
                 </li>
-                <li ng-class="{ 'active' : isActive('/selections/') }">
+                <li ng-class="{ 'active' : isActive('/selections') }">
                     <a href="#/selections">
                         <span class="glyphicon glyphicon-stats"></span>&nbsp;Selections
                     </a>
@@ -63,8 +63,19 @@
 
         <hr/>
 
-        <div class="col-sm-12">
-            <div ng-view class="row">
+        <div class="row" ng-show="game && !isActive('/games')">
+            <div class="col-sm-4">
+                <img src="{{ game.image }}" alt="{{ game.name }}" class="img-thumbnail img-responsive thumbnail pull-left" ng-if="game.image"/>
+            </div>
+            <div class="col-sm-8">
+                <h3 class="lobster pull-right">{{ game.name }}</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div ng-view class="row">
+                </div>
             </div>
         </div>
 
