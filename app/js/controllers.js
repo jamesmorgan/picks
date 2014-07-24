@@ -117,8 +117,6 @@ angular.module('myApp.controllers', [])
                         .flatten()
                         .uniq(function(pick) {return pick._id;})
                         .value();
-                    
-                    console.log($scope.picksSelections);
                 });
         }
 

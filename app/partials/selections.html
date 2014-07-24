@@ -23,17 +23,20 @@
             <td ng-if="admin">
                 <form class="form-inline" role="form" ng-if="admin">
                     <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, -1)">
-                        <span class="glyphicon glyphicon-minus"></span> 1
+                        <span class="glyphicon glyphicon-minus"></span>
                     </button>
                     <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, 1)">
-                        <span class="glyphicon glyphicon-plus"></span> 1
+                        <span class="glyphicon glyphicon-plus"></span>
                     </button>
-                    &nbsp;|&nbsp;
-                     <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, -5)">
-                        <span class="glyphicon glyphicon-minus"></span> 5
+                     <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, -3)">
+                        <span class="glyphicon glyphicon-minus"></span>
+                        <span class="glyphicon glyphicon-minus"></span>
+                        <span class="glyphicon glyphicon-minus"></span>
                     </button>
-                    <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, 5)">
-                        <span class="glyphicon glyphicon-plus"></span> 5
+                    <button type="button" class="btn btn-default form-control" ng-disabled="submitted" ng-click="update(s._id, s.score, 3)">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span class="glyphicon glyphicon-plus"></span>
                     </button>
                 </form>
             </td>
