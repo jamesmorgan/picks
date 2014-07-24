@@ -61,6 +61,11 @@ h4 {
    width:60px;
 }
 
+.thumbnail {
+	max-height: 100px;
+	max-width: 100px;
+}
+
 /* Extra Small */
 @media(max-width:767px){
 	.table-selections {
