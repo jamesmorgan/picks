@@ -59,7 +59,6 @@ angular.module('myApp.controllers', [])
                 $rootScope.gameId = $routeParams.gameId;
             }
             $log.debug('load game and picks: ' + $rootScope.gameId);
-            console.log($routeParams);
 
             $http.get('/game/' + $rootScope.gameId)
                 .then(function(response) {
@@ -121,7 +120,7 @@ angular.module('myApp.controllers', [])
         }
 
         $scope.gameSelections = function() {
-            if (['inplay', 'closed'].indexOf($rootScope.game.status) != -1) {
+            if ($rootScope.game && ['inplay', 'closed'].indexOf($rootScope.game.status) != -1) {
                 return $scope.picksSelections;
             } 
 
