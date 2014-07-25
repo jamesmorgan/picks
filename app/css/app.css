@@ -20,15 +20,7 @@ h3 a:link {
 	text-decoration:none; 
 } 
 
-h2 {
-	color: #428bca;
-}
-
-h3 {
-	color: #428bca;
-}
-
-h4 {
+h1, h2, h3, h4 {
 	color: #428bca;
 }
 
@@ -65,13 +57,8 @@ h4 {
 @media(max-width:767px){
 	.table-selections {
 		display: block;
-		/*font-size: 90%;*/
 	}
 	
-	.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
-		padding: 6px;
-	}
-
 	.profile-img {
     	max-width: 50px;
     	max-height: 50px;

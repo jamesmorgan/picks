@@ -46,7 +46,7 @@
 <body>
     <div class="container" ng-controller="NavCtrl">
         <div class="header">
-            <ul class="nav nav-pills pull-right">
+            <ul class="nav nav-pills pull-right" ng-show="game && !isActive('/games')">
                 <li ng-class="{ 'active' : isActive('/table') }">
                     <a href="#/table">
                         <span class="glyphicon glyphicon-list"></span>&nbsp;Table
@@ -58,21 +58,23 @@
                     </a>
                 </li>
             </ul>
-            <h3 class="text-muted lobster"><a href="#/games"><span class="glyphicon glyphicon-heart-empty font-dec"></span>&nbsp;Picks</a></h3>
+            <h3 class="text-muted lobster"><a href="#/games"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;Picks</a></h3>
         </div>
 
         <hr/>
 
-        <div class="row" ng-show="game && !isActive('/games')">
-            <div class="col-sm-4 col-xs-4">
-                <img src="{{ game.image }}" alt="{{ game.name }}" class="img-circle img-responsive profile-img picks"/>
+        <div ng-show="game && !isActive('/games')"> 
+            <div class="row" >
+                <div class="col-sm-4 col-xs-4">
+                    <img src="{{ game.image }}" alt="{{ game.name }}" class="img-circle img-responsive profile-img picks"/>
+                </div>
+                <div class="col-sm-8 col-xs-8 text-right">
+                    <h3 class="lobster">{{ game.name }}</h3>
+                </div>
             </div>
-            <div class="col-sm-8 col-xs-8 text-right">
-                <h3 class="lobster">{{ game.name }}</h3>
-            </div>
-        </div>
 
-        <hr/>
+            <hr/>
+        </div>
 
         <div class="row">
             <div class="col-sm-12">
