@@ -1,5 +1,5 @@
 body {
-    padding-top: 20px;
+    padding-top: 5px;
     padding-bottom: 40px;
 }
 
@@ -61,11 +61,6 @@ h4 {
    width:60px;
 }
 
-.thumbnail {
-	max-height: 100px;
-	max-width: 100px;
-}
-
 /* Extra Small */
 @media(max-width:767px){
 	.table-selections {
@@ -75,6 +70,11 @@ h4 {
 	
 	.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
 		padding: 6px;
+	}
+
+	.profile-img {
+    	max-width: 50px;
+    	max-height: 50px;
 	}
 }
 

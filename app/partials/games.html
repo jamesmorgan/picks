@@ -6,11 +6,9 @@
                     <span ng-class="{'label': true, 'label-default': game.status == 'closed', 'label-warning': game.status == 'inplay', 'label-success': game.status == 'open'}">{{ game.status }}</span>
                 </h3>
             </td>
-            <td class="hidden-xs">
-                <img src="{{ game.image }}" alt="{{ game.name }}" class="img-circle img-responsive profile-img pull-left"/>
-            </td>
             <td>
-                <h3 class="lobster">{{ game.name }}</h3>
+                <img src="{{ game.image }}" alt="{{ game.name }}" class="img-circle img-responsive profile-img pull-left right-pad-md"/>
+                <h3 class="lobster"><a href="#/table/{{ game._id }}">{{ game.name }}</a></h3>
             </td>
             <td>
                 <a class="btn btn-default bottom-pad-sm" href="#/table/{{ game._id }}">
