@@ -63,38 +63,34 @@ exports.setup = function(app, mongoose) {
 
     app.post('/selections/:gameid/update', function(req, res) {
         console.log('GET /selections/' + req.params.gameid + '/update');
-        Game.findOne({
-            'adminPass': req.body.adminPass
-        }, function(err, data) {
-            if (data) {
-                Selection.findByIdAndUpdate(req.body._id, {
-                    $set: {
-                        score: req.body.score
-                    }
-                }, function(err, sel) {
-                    if (err) {
-                        res.send({
-                            'update': false
-                        });
-                    } else {
-                        res.send({
-                            'update': true
-                        });
-                    }
+        var promise = Game.findOne({'adminPass': req.body.adminPass}).exec();
+        promise
+            .then(function(data) {
+                if (data) {
+                    return Selection.findByIdAndUpdate(req.body._id, {
+                        $set: {
+                            score: req.body.score
+                        }
+                    }).exec();
+                } else {
+                    throw new Error('Admin password incorrect!');
+                }
+            })
+            .then(function(data) {
+                res.send({
+                    'update': true
                 });
-            } else {
+            }, function(error) {
                 res.send({
                     'update': false
                 });
-            }
-        });
+            });
     });
 
     app.post('/selections/:gameid/:pot', function(req, res) {
         console.log('GET /selections/' + req.params.gameid + '/' + req.params.pot);
-        
+
         if (req.body) {
-            
             req.body.map(function(sel) {
                 console.log('adding [' + sel + '] to pot ' + req.params.pot + ' for game ' + req.params.gameid);
 
@@ -104,8 +100,9 @@ exports.setup = function(app, mongoose) {
                     score: 0,
                     game: req.params.gameid
                 };
+                
                 Selection.create(newSel, function(err, dbSel) {
-                    console.log('added to mongo [' + dbSel.name + ']');   
+                    console.log('added to mongo [' + dbSel.name + ']');
                 });
 
                 res.send({
