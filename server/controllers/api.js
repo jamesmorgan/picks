@@ -1,5 +1,9 @@
 exports.setup = function(app, mongoose) {
 
+    var errorFunc = function(error) {
+        console.log('ERROR: ' + error);
+    };
+
     var gameSchema = new mongoose.Schema({
         name: String,
         type: String,
@@ -47,23 +51,27 @@ exports.setup = function(app, mongoose) {
     // selections
     app.get('/selections', function(req, res) {
         console.log('GET /selections');
-        Selection.find({}, function(err, docs) {
-            res.send(docs);
-        });
+        Selection.find({})
+            .exec()
+            .then(function(data) {
+                res.send(docs);
+            }, errorFunc)
     });
 
     app.get('/selections/:gameid', function(req, res) {
         console.log('GET /selections/' + req.params.gameid);
-        Selection.find({
-            'game': req.params.gameid
-        }, function(err, docs) {
-            res.send(docs);
-        });
+        Selection.find({'game': req.params.gameid})
+            .exec()
+            .then(function(docs) {
+                res.send(docs);
+            }, errorFunc);
     });
 
     app.post('/selections/:gameid/update', function(req, res) {
         console.log('GET /selections/' + req.params.gameid + '/update');
-        var promise = Game.findOne({'adminPass': req.body.adminPass}).exec();
+        var promise = Game.findOne({
+            'adminPass': req.body.adminPass
+        }).exec();
         promise
             .then(function(data) {
                 if (data) {
@@ -81,8 +89,9 @@ exports.setup = function(app, mongoose) {
                     'update': true
                 });
             }, function(error) {
+                console.log('ERROR ' + error);
                 res.send({
-                    'update': false
+                    'error': error
                 });
             });
     });
@@ -100,7 +109,7 @@ exports.setup = function(app, mongoose) {
                     score: 0,
                     game: req.params.gameid
                 };
-                
+
                 Selection.create(newSel, function(err, dbSel) {
                     console.log('added to mongo [' + dbSel.name + ']');
                 });
@@ -119,9 +128,11 @@ exports.setup = function(app, mongoose) {
     // games
     app.get('/games', function(req, res) {
         console.log('GET /games');
-        Game.find({}, function(err, docs) {
-            res.send(docs);
-        });
+        Game.find({})
+            .exec()
+            .then(function(docs) {
+                res.send(docs);
+            }, errorFunc);
     });
 
     app.get('/game/:id', function(req, res) {
