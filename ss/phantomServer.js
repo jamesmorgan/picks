@@ -7,7 +7,7 @@ phantom.create(function(ph) {
         return page.open(url, function(status) {
             console.log("opened site: ", status);
 
-            page.injectJs('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', function() {
+            page.injectJs('http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', function() {
                 //Wait for a bit for AJAX content to load on the page. Here, we are waiting 5 seconds.
                 setTimeout(function() {
                     return page.evaluate(function() {
