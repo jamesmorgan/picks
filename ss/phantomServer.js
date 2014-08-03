@@ -27,20 +27,19 @@ phantom.create(function(ph) {
                         result.forEach(function(player) { 
                             rest.get('http://localhost:3000/selections/53de3289e4b00257865775cd/find/' + player.player).on('complete', function(data) {
                                 if (data && data._id) {
-                                    console.log(player.player + ' > ' + data._id + ' : ' + player.score);  
+                                    console.log('found ' + player.player + ' > ' + data._id + ' : ' + player.score);  
                                     rest.post('http://localhost:3000/selections/53de3289e4b00257865775cd/update', {
                                         data: { 
                                             adminPass: 'Bird', 
-                                            _id: data,
+                                            _id: data._id,
                                             score: player.score
-                                        },
+                                        }
                                     }).on('complete', function(data, response) {
                                       if (response.statusCode == 200) {
-                                            console.log('updated ' + player.player)
+                                            console.log('updated ' + player.player + ' to ' + player.score)
                                       }
                                     });
                                 }
-                     
                             });
                         });
                         // ph.exit();

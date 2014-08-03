@@ -67,6 +67,15 @@ exports.setup = function(app, mongoose) {
             }, errorFunc);
     });
 
+    app.get('/selections/:gameid/find/:name', function(req, res) {
+        console.log('GET /selections/' + req.params.gameid + '/find/' + req.params.name);
+        Selection.findOne({'game': req.params.gameid, 'name': req.params.name})
+            .exec()
+            .then(function(doc) {
+                res.send(doc);
+            }, errorFunc);
+    });
+
     app.post('/selections/:gameid/update', function(req, res) {
         console.log('GET /selections/' + req.params.gameid + '/update');
         var promise = Game.findOne({
