@@ -5,7 +5,8 @@
   "description": "A screenscraper to seed the picks game",
   "dependencies" : {
     "phantom" :  "*",
-    "restler": "*"
+    "restler": "*",
+    "repeat": "*"
   },
   "license": "MIT",
   "engines": {
