@@ -1,4 +1,5 @@
 var phantom = require('phantom');
+var rest = require('restler');
 
 var url = "http://www.worldgolfchampionships.com/bridgestone-invitational/leaderboard.html";
 phantom.create(function(ph) {
@@ -15,15 +16,23 @@ phantom.create(function(ph) {
                         var playerAndTotal = []
                         $('.row-main').each(function() {
                             var pos = $.trim($(this).find('.col-pos').html());
-                            var total = $.trim($(this).find('.col-total').html());  
+                            var score = $.trim($(this).find('.col-total').html());  
                             var player = $.trim($(this).find('.col-player div .expansion').html());  
-                            playerAndTotal.push({pos: pos, player: player, total: total});         
+                            playerAndTotal.push({pos: pos, player: player, score: score});         
                         });
              
                         return playerAndTotal;
                     }, function(result) {
-                         console.log(result);
-                        ph.exit();
+                        console.log('found ' + result.length + ' players');
+                        result.forEach(function(player) { 
+                            rest.get('http://localhost:3000/selections/53de3289e4b00257865775cd/find/' + player.player).on('complete', function(data) {
+                                if (data && data._id) {
+                                    console.log(player.player + ' > ' + data._id + ' : ' + player.score);  
+                                }
+                     
+                            });
+                        });
+                        // ph.exit();
                     });
                 }, 5000);
 
